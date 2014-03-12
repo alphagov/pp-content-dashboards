@@ -1,0 +1,253 @@
+{
+  "slug": "no-realistic-dashboard",
+  "page-type": "dashboard",
+  "title": "Non-Realistic Data Stub",
+  "strapline": "Performance",
+  "tagline": "This is a tagline (this is not real data).",
+  "related_pages_title": "Housing policies",
+  "related_pages": [
+    {
+      "title": "Helping people to buy a home",
+      "url": "https://www.gov.uk/government/policies/helping-people-to-buy-a-home",
+      "metadata": "<time datetime=\"2013-10-08T06:51:36+01:00\" title=\"2013-10-08T06:51:36+01:00\">8 October 2013</time> from <abbr title=\"Department for Communities and Local Government\">DCLG</abbr>, <abbr title=\"HM Treasury\">HMT</abbr> and <abbr title=\"Homes and Communities Agency\">HCA</abbr>"
+    },
+    {
+      "title": "Increasing the number of available homes",
+      "url": "https://www.gov.uk/government/policies/increasing-the-number-of-available-homes",
+      "metadata": "<time datetime=\"2013-08-20T09:30:05+01:00\" title=\"2013-08-20T09:30:05+01:00\">20 August 2013</time> from <abbr title=\"Department for Communities and Local Government\">DCLG</abbr>"
+    },
+    {
+      "title": "Improving the rented housing sector",
+      "url": "https://www.gov.uk/government/policies/improving-the-rented-housing-sector--2",
+      "metadata": "<time datetime=\"2013-06-20T12:51:23+01:00\" title=\"2013-06-20T12:51:23+01:00\">20 June 2013</time> from <abbr title=\"Department for Communities and Local Government\">DCLG</abbr>"
+    },
+    {
+      "title": "Providing housing support for older and vulnerable people",
+      "url": "https://www.gov.uk/government/policies/providing-housing-support-for-older-and-vulnerable-people",
+      "metadata": "<time datetime=\"2013-04-09T14:23:04+01:00\" title=\"2013-04-09T14:23:04+01:00\">9 April 2013</time> from <abbr title=\"Department for Communities and Local Government\">DCLG</abbr>"
+    }
+  ],
+  "modules": [
+    {
+      "slug": "live-service-usage",
+      "module-type": "realtime",
+      "title": "Live service usage",
+      "description": "Live number of users on any page within the service",
+      "info": [
+        "Info text line 1",
+        "Info text line 2"
+      ],
+      "data-group": "licensing",
+      "data-type": "realtime"
+    },
+    {
+      "slug": "top-content",
+      "module-type": "list",
+      "title": "Top content",
+      "description": "Most unique pageviews",
+      "classes": ["cols2"],
+      "data-group": "govuk",
+      "data-type": "most_viewed",
+      "sort-by": "pageviews:descending",
+      "limit": 10,
+      "label-attr": "pageTitle",
+      "label-regex": "^(.*)\\s-[^-]+$",
+      "link-attr": "pagePath"
+    },
+    {
+      "slug": "trending",
+      "module-type": "list",
+      "title": "Trending content",
+      "description": "Largest percentage increase in pageviews week-on-week",
+      "classes": ["cols2", "up"],
+      "data-group": "govuk",
+      "data-type": "trending",
+      "sort-by": "percent_change:descending",
+      "limit": 10,
+      "label-attr": "pageTitle",
+      "label-regex": "^(.*)\\s-[^-]+$",
+      "link-attr": "pagePath"
+    },
+    {
+      "slug": "users-at-each-step",
+      "module-type": "journey",
+      "title": "Users at each step",
+      "description": "Number of users who completed important stages of the transaction last week",
+      "data-group": "deposit-foreign-marriage",
+      "data-type": "journey",
+      "matching-attribute": "eventCategory",
+      "axes": {
+        "y": [
+          {
+            "journeyId": "deposit-foreign-marriage:start",
+            "label": "Start",
+            "key": "uniqueEvents",
+            "format": "integer"
+          },
+          {
+            "journeyId": "deposit-foreign-marriage:confirm",
+            "label": "Confirm",
+            "key": "uniqueEvents",
+            "format": "integer"
+          },
+          {
+            "journeyId": "deposit-foreign-marriage:done",
+            "label": "Done",
+            "key": "uniqueEvents",
+            "format": "integer"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "service-availability",
+      "module-type": "availability",
+      "title": "Service availability",
+      "description": "",
+      "data-group": "deposit-foreign-marriage",
+      "data-type": "monitoring",
+      "info": [
+        "Info text line 1",
+        "Info text line 2"
+      ],
+      "tabs": [
+        {"id": "day", "name": "30 days"},
+        {"id": "hour", "name": "24 hours"}
+      ],
+      "tabbed_attr": "period"
+    },
+    {
+      "slug": "user-satisfaction",
+      "module-type": "user_satisfaction",
+      "title": "User satisfaction",
+      "description": "Average score of satisfied responses",
+      "data-group": "vehicle-licensing",
+      "data-type": "customer-satisfaction",
+      "info": [
+        "Data source: DVLA database",
+        "User satisfaction is measured by surveying a sample of users at the point of transaction completion. It is measured on a five-point scale, from most satisfied to least satisfied. The mean of these responses is converted to a percentage for display purposes."
+      ],
+      "value-attribute": "satisfaction_sorn"
+    },
+    {
+      "slug": "applications",
+      "module-type": "completion_numbers",
+      "title": "Applications",
+      "description": "",
+      "data-group": "pay-foreign-marriage-certificates",
+      "data-type": "journey",
+      "info": [
+        "Info text line 1",
+        "Info text line 2"
+      ],
+      "denominator-matcher": "start$",
+      "numerator-matcher": "done$",
+      "matching-attribute": "eventCategory"
+    },
+    {
+      "slug": "completion-rate",
+      "module-type": "completion_rate",
+      "title": "Completion rate",
+      "description": "",
+      "data-group": "carers-allowance",
+      "data-type": "journey",
+      "info": [
+        "Info text line 1",
+        "Info text line 2"
+      ],
+      "denominator-matcher": "about-you$",
+      "numerator-matcher": "consent-and-declaration$",
+      "matching-attribute": "eventLabel"
+    },
+    {
+      "slug": "average-first-mortgage",
+      "module-type": "multi_stats",
+      "title": "Average first mortgage",
+      "description": "A range of factors indicative of the state of the housing market for first-time buyers",
+      "data-group": "housing-policy",
+      "data-type": "first-time-buyer",
+      "period": "month",
+      "stats": [
+        {
+          "title": "Median size of mortgage",
+          "attr": "median_advance_sterling",
+          "format": "£{{ value }}"
+        },
+        {
+          "title": "Median advance",
+          "attr": "median_percentage_advance",
+          "format": "{{ value }}%"
+        }
+      ]
+    },
+    {
+      "slug": "stacked_categories",
+      "module-type": "grouped_timeseries",
+      "title": "Categories in a stack",
+      "description": "",
+      "data-group": "housing-policy",
+      "data-type": "residential-transactions",
+      "use_stack": true,
+      "value-attr": "value:sum",
+      "category": "geography",
+      "period": "month",
+      "filter-by": ["key:residential_property_transactions"],
+      "axes": {
+        "y": [
+          {
+            "label": "England",
+            "categoryId": "England",
+            "format": "integer"
+          },
+          {
+            "label": "Scotland",
+            "categoryId": "Scotland",
+            "format": "integer"
+          },
+          {
+            "label": "Wales",
+            "categoryId": "Wales",
+            "format": "integer"
+          },
+          {
+            "label": "Northern Ireland",
+            "categoryId": "Northern_Ireland",
+            "format": "integer"
+          }
+        ]
+      },
+      "show-line-labels": true
+    },
+    {
+      "slug": "starts_completions",
+      "module-type": "grouped_timeseries",
+      "title": "Categories as lines",
+      "description": "",
+      "data-group": "housing-policy",
+      "data-type": "dwellings",
+      "use_stack": false,
+      "value-attr": "value:sum",
+      "category": "type",
+      "period": "quarter",
+      "filter-by": ["geography:United_Kingdom", "tenure:all_dwellings"],
+      "info": [
+        "Source: National House-Building Council (NHBC)"
+      ],
+      "axes": {
+        "y": [
+          {
+            "label": "Completed",
+            "categoryId": "completed",
+            "format": "integer"
+          },
+          {
+            "label": "Started",
+            "categoryId": "started",
+            "format": "integer"
+          }
+        ]
+      },
+      "show-line-labels": true
+    }
+  ]
+}

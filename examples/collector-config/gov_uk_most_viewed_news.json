@@ -1,0 +1,20 @@
+{
+  "dataType": "most_viewed_news",
+  "query": {
+    "id": "ga:53872948",
+    "metrics": [
+      "pageviews"
+    ],
+    "dimensions": [
+      "pageTitle","pagePath"
+    ],
+    "filters": [
+      "pagePath=~^\/government/(news|speeches).*"
+    ]
+  },
+  "idMapping": ["pagePath", "pageTitle"],
+  "target": {
+    "url": "{{ targets['backdrop'] }}/gov_uk_most_viewed_news",
+    "token": "{{ tokens['gov_uk_most_viewed_news'] }}"
+  }
+}
