@@ -7,7 +7,8 @@ from nose.tools import assert_equal
 from os.path import join, dirname, abspath
 
 from make_ga_collector_config import (read_ga_collector_config, EXPECTED_KEYS,
-                                      has_all_expected_keys, has_no_unexpected_keys)
+                                      has_all_expected_keys, has_no_unexpected_keys,
+                                      validate_config)
 
 SAMPLE_DIR = join(dirname(abspath(__file__)), 'examples/collector-config')
 
@@ -40,3 +41,6 @@ class GAConfigTests(unittest.TestCase):
         test, missing_keys = has_all_expected_keys(test_dict)
         assert_equal(set(['id', 'query']), missing_keys)
         assert_equal(False, test)
+
+    def test_validate_config(self):
+        assert_equal(True, validate_config(self.ga_config))

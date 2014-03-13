@@ -58,8 +58,6 @@ def has_no_unexpected_keys(ga_config):
         result = False
     return result, unexpected_keys
 
-def check_optional_keys(ga_config):
-    pass
 
 
 
