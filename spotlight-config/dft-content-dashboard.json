@@ -1,194 +1,26 @@
 {
-  "slug": "site-activity",
+  "slug": "dft-content-dashboard",
   "page-type": "dashboard",
-  "strapline": "Performance",
-  "title": "Activity on GOV.UK",
-  "tagline": "Web performance data for all of GOV.UK, including site traffic and availability.",
+  "strapline": "Content Dashboard",
+  "title": "Department for Transport (DfT)",
+  "tagline": "Web performance data for the Department of Transport, including site traffic and availability. 
+              <a href='http://www.gov.uk/performance/site-activity'>View GOV.UK site activity</a>",
+  "relatedPages": {
+    "other": [
+      {
+        "title": "Department for Transport",
+        "url": "https://www.gov.uk/government/organisations/department-for-transport"
+      },
+      {
+        "title": "DfT policies",
+        "url": "https://www.gov.uk/government/policies?departments%5B%5D=department-for-transport"
+      },
+      {
+        "title": "Dft publications",
+        "url": "https://www.gov.uk/government/publications?departments%5B%5D=department-for-transport"
+      }
+    ]
+  },
   "modules": [
-    {
-      "slug": "live-service-usage",
-      "module-type": "realtime",
-      "title": "Live service usage",
-      "description": "Number of users currently on GOV.UK",
-      "info": [
-        "Data source: Google Analytics",
-        "Shows the estimated number of users currently accessing GOV.UK."
-      ],
-      "data-group": "government",
-      "data-type": "realtime"
-    },
-    {
-      "slug": "site-traffic",
-      "module-type": "grouped_timeseries",
-      "title": "Site traffic",
-      "description": "Unique visitors to GOV.UK over the past year, compared with the previous year",
-      "data-group": "govuk",
-      "data-type": "visitors",
-      "category": "dataType",
-      "period": "week",
-      "duration": 52,
-      "axis-period": "month",
-      "value-attr": "visitors:sum",
-      "show-line-labels": true,
-      "use_stack": false,
-      "info": [ "Data source: Google Analytics" ],
-      "axes": {
-        "y": [
-          {
-            "label": "GOV.UK",
-            "categoryId": "govuk_visitors",
-            "format": "integer"
-          },
-          {
-            "label": "GOV.UK",
-            "categoryId": "govuk_visitors",
-            "timeshift": 52,
-            "format": "integer"
-          },
-          {
-            "label": "Directgov",
-            "categoryId": "directgov_visitors",
-            "timeshift": 52,
-            "format": "integer"
-          },
-          {
-            "label": "Business Link",
-            "categoryId": "businesslink_visitors",
-            "timeshift": 52,
-            "format": "integer"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "top-content",
-      "module-type": "list",
-      "title": "Top content",
-      "description": "Most pageviews in past seven days",
-      "info": [
-        "Data source: Google Analytics",
-        "The content on GOV.UK with the most pageviews in the past seven days."
-      ],
-      "classes": ["cols2"],
-      "data-group": "govuk",
-      "data-type": "most_viewed",
-      "sort-by": "pageviews:descending",
-      "limit": 10,
-      "label-attr": "pageTitle",
-      "label-regex": "^(.*)\\s-[^-]+$",
-      "link-attr": "pagePath"
-    },
-    {
-      "slug": "trending",
-      "module-type": "list",
-      "title": "Trending content",
-      "description": "Largest percentage increase in pageviews week-on-week",
-      "info": [
-        "Data source: Google Analytics",
-        "Based on percentage increase between total pageviews in past seven days and total pageviews in previous seven days. Low pageviews in either period are rounded up to a set threshold.",
-        "Excludes search results, help pages, the Service Design Manual, the Performance Platform, policies, and transformation projects."
-      ],
-      "classes": ["cols2"],
-      "data-group": "govuk",
-      "data-type": "trending",
-      "sort-by": "percent_change:descending",
-      "limit": 10,
-      "label-attr": "pageTitle",
-      "label-regex": "^(.*)\\s-[^-]+$",
-      "link-attr": "pagePath"
-    },
-    {
-      "slug": "top-policies",
-      "module-type": "list",
-      "title": "Top policies",
-      "description": "Most pageviews in past seven days",
-      "info": [
-        "Data source: Google Analytics",
-        "The policies on GOV.UK with the most pageviews in the past seven days."
-      ],
-      "classes": ["cols2"],
-      "data-group": "govuk",
-      "data-type": "most_viewed_policies",
-      "sort-by": "pageviews:descending",
-      "limit": 10,
-      "label-attr": "pageTitle",
-      "label-regex": "^(.*?)(?:\\s-\\s(?:Policy\\s-\\s|Policies\\s-\\s)?GOV.UK)?$",
-      "link-attr": "pagePath"
-    },
-    {
-      "slug": "top-announcements",
-      "module-type": "list",
-      "title": "Top announcements",
-      "description": "Most pageviews in past seven days",
-      "info": [
-        "Data source: Google Analytics",
-        "The press releases and news on GOV.UK with the most pageviews in the past seven days."
-      ],
-      "classes": ["cols2"],
-      "data-group": "govuk",
-      "data-type": "most_viewed_news",
-      "sort-by": "pageviews:descending",
-      "limit": 10,
-      "label-attr": "pageTitle",
-      "label-regex": "^(.*?)(?:\\s-\\s(?:News stories\\s-\\s|Press releases\\s-\\s)?GOV.UK)?$",
-      "link-attr": "pagePath"
-    },
-    {
-      "slug": "device-type",
-      "module-type": "grouped_timeseries",
-      "title": "How people access GOV.UK",
-      "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
-      "data-group": "govuk",
-      "data-type": "devices",
-      "category": "deviceCategory",
-      "period": "week",
-      "axis-period": "month",
-      "duration": 52,
-      "value-attr": "visitors:sum",
-      "show-line-labels": true,
-      "one-hundred-percent": true,
-      "use_stack": true,
-      "info": [
-        "Data source: Google Analytics",
-        "Desktop category includes traffic from desktops and laptops"
-      ],
-      "axes": {
-        "y": [
-          {
-            "label": "Desktop",
-            "categoryId": "desktop",
-            "format": "integer"
-          },
-          {
-            "label": "Mobile",
-            "categoryId": "mobile",
-            "format": "integer"
-          },
-          {
-            "label": "Tablet",
-            "categoryId": "tablet",
-            "format": "integer"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "service-availability",
-      "module-type": "availability",
-      "title": "Service availability",
-      "description": "",
-      "data-group": "govuk",
-      "data-type": "monitoring",
-      "info": [
-        "Data source: Pingdom",
-        "Page load time measures the time taken for a sample page within the service to load.",
-        "<a href='/service-manual/operations/uptime-and-availability' rel='external'>Uptime</a> measures the percentage of time that the service was observed to be available."
-      ],
-      "tabs": [
-        {"id": "day", "name": "30 days"},
-        {"id": "hour", "name": "24 hours"}
-      ],
-      "tabbed_attr": "period"
-    }
   ]
 }
