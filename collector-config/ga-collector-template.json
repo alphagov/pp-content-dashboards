@@ -1,0 +1,19 @@
+{
+  "dataType": "{{dataGroup+dataType}}",
+  "query": {
+    "id": "ga:74473500",
+    "metrics": [
+      "{{Metrics}}"
+    ],
+    "dimensions": [
+      "{{Dimensions}}"
+    ],
+    "filters": [
+      "{{filter}}"
+    ]
+  },
+  "target": {
+    "url": "{{ targets['backdrop'] }}/gov_uk_content_{{dataGroup+dataType}}",
+    "token": "{{  }}"
+  }
+}
