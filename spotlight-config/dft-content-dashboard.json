@@ -1,0 +1,26 @@
+{
+  "slug": "dft-content-dashboard",
+  "page-type": "dashboard",
+  "strapline": "Content Dashboard",
+  "title": "Department for Transport (DfT)",
+  "tagline": "Web performance data for the Department of Transport, including site traffic and availability. 
+              <a href='http://www.gov.uk/performance/site-activity'>View GOV.UK site activity</a>",
+  "relatedPages": {
+    "transaction": {
+      "title": "Department for Transport",
+      "url" : "https://www.gov.uk/government/organisations/department-for-transport"
+    },
+    "other": [
+      {
+        "title": "DfT policies",
+        "url": "https://www.gov.uk/government/policies?departments%5B%5D=department-for-transport"
+      },
+      {
+        "title": "Dft publications",
+        "url": "https://www.gov.uk/government/publications?departments%5B%5D=department-for-transport"
+      }
+    ]
+  },
+  "modules": [
+  ]
+}
