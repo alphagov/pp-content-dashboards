@@ -1,12 +1,14 @@
-#!/usr/bin/env python
+#! /usr/bin/env python
 # encoding: utf-8
 
 from __future__ import unicode_literals
 
 import codecs
+import collections
+import csv
 import json
 import sys
-import collections
+
 from collections import OrderedDict
 
 TEMPLATE_GA_CONFIG = OrderedDict([
@@ -69,9 +71,29 @@ def has_no_unexpected_keys(ga_config):
         result = False
     return result, unexpected_keys
 
+def load_csv_as_json(path):
+    """
+    Read a csv file into json dictionaries, using the first row as keys
+    """
+    with open(path) as fd:
+        rows = list(csv.reader(fd))
+        headings = rows.pop(0)
+
+        return [dict(zip(headings, values)) for values in rows]
+
+def main():
+
+    INPUT_CSV_PATH = "collector-config/GoogleAnalyticsQueries - Searches.csv"
+
+    from pprint import pprint
+    pprint(load_csv_as_json(INPUT_CSV_PATH))
+
+    return
+
 
 if __name__ == '__main__':
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
+    main()
 
 # References
 # Dictionary Flattening:
