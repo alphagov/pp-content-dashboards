@@ -1,5 +1,15 @@
 #! /usr/bin/env python
 # encoding: utf-8
+"""
+
+Usage:
+  make_ga_collector_config.py --ga-id <ga-id>
+
+Options:
+  -h --help     Show this screen
+  --ga-id       8-digit GA query ID
+
+"""
 
 from __future__ import unicode_literals
 
@@ -8,6 +18,8 @@ import collections
 import csv
 import json
 import sys
+
+import docopt
 
 from collections import OrderedDict
 
@@ -81,7 +93,7 @@ def load_csv_as_json(path):
 
         return [dict(zip(headings, values)) for values in rows]
 
-def main():
+def main(args):
 
     INPUT_CSV_PATH = "collector-config/GoogleAnalyticsQueries - Searches.csv"
 
@@ -93,7 +105,8 @@ def main():
 
 if __name__ == '__main__':
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
-    main()
+    args = docopt(__doc__)
+    main(args)
 
 # References
 # Dictionary Flattening:
