@@ -20,6 +20,7 @@ import json
 import sys
 
 import docopt
+import jinja
 
 from collections import OrderedDict
 
@@ -99,8 +100,26 @@ def output_bucket_config(row):
     row["dataType"]
 
 
-def output_ga_collector_config(row):
-    pass
+def output_ga_collector_config(row, args):
+    template = jinja.from_string(open("collector-config/ga-collector-template.json").read())
+    def jsonify(sep, what):
+        def strip(x):
+            x = x.strip()
+            if x.startswith("ga:"):
+                 x = x[len("ga:"):]
+            return x
+        return json.dumps([strip(x) for x in what.split(sep)])
+
+    row["ga_id"] = args["<ga-id>"]
+    row["metrics"] = jsonify(",", row["Metrics"])
+    row["dimensions"] = jsonify(",", row["Dimensions"])
+    row["filters"] = jsonify(";", row["Filters"])
+
+    row["bearer_token"] = "scraperwiki"
+    row["backdrop_target"] = "http://localhost:3039/data"
+
+    with open("collector-config/output/{}.json".format(row["dataType"]), "w") as fd:
+        fd.write(template.render(**row))
 
 
 def output_spotlight_config(row):
@@ -114,13 +133,13 @@ def main(args):
 
     for row in load_csv_as_json(INPUT_CSV_PATH):
         output_bucket_config(row)
-        output_ga_collector_config(row)
+        output_ga_collector_config(row, args)
         output_spotlight_config(row)
 
 
 if __name__ == '__main__':
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
-    args = docopt(__doc__)
+    args = docopt.docopt(__doc__)
     main(args)
 
 # References
