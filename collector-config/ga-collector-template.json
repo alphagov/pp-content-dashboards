@@ -1,5 +1,5 @@
 {
-  "dataType": "{{dataGroup + dataType}}",
+  "dataType": "{{dataGroup}}_{{dataType}}",
   "query": {
     "id": "ga:{{ga_id}}",
     "metrics": {{metrics}},
@@ -11,7 +11,7 @@
     ]
   },
   "target": {
-    "url": "{{backdrop_target}}/gov_uk_content_{{dataGroup + dataType}}",
+    "url": "{{backdrop_target}}/{{dataGroup}}/{{dataType}}",
     "token": "{{bearer_token}}"
   }
 }
