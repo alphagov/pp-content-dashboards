@@ -1,19 +1,17 @@
 {
-  "dataType": "{{dataGroup+dataType}}",
+  "dataType": "{{dataGroup + dataType}}",
   "query": {
-    "id": "ga:74473500",
-    "metrics": [
-      "{{Metrics}}"
-    ],
-    "dimensions": [
-      "{{Dimensions}}"
-    ],
-    "filters": [
-      "{{filter}}"
+    "id": "ga:{{ga_id}}",
+    "metrics": {{metrics}},
+    "dimensions": {{dimensions}},
+    "filters": {{filters}},
+    "plugins": [
+        "gds.ga.plugins.scraperwiki:compute_department",
+        "gds.ga.plugins.scraperwiki:aggregate_department"
     ]
   },
   "target": {
-    "url": "{{ targets['backdrop'] }}/gov_uk_content_{{dataGroup+dataType}}",
-    "token": "{{  }}"
+    "url": "{{backdrop_target}}/gov_uk_content_{{dataGroup + dataType}}",
+    "token": "{{bearer_token}}"
   }
 }

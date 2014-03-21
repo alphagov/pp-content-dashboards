@@ -1,12 +1,26 @@
-#!/usr/bin/env python
+#! /usr/bin/env python
 # encoding: utf-8
+"""
+
+Usage:
+  make_ga_collector_config.py --ga-id <ga-id>
+
+Options:
+  -h --help     Show this screen
+  --ga-id       8-digit GA query ID
+
+"""
 
 from __future__ import unicode_literals
 
 import codecs
+import collections
+import csv
 import json
 import sys
-import collections
+
+import docopt
+
 from collections import OrderedDict
 
 TEMPLATE_GA_CONFIG = OrderedDict([
@@ -70,8 +84,44 @@ def has_no_unexpected_keys(ga_config):
     return result, unexpected_keys
 
 
+def load_csv_as_json(path):
+    """
+    Read a csv file into json dictionaries, using the first row as keys
+    """
+    with open(path) as fd:
+        rows = list(csv.reader(fd))
+
+    headings = rows.pop(0)
+    return [dict(zip(headings, values)) for values in rows]
+
+
+def output_bucket_config(row):
+    row["dataType"]
+
+
+def output_ga_collector_config(row):
+    pass
+
+
+def output_spotlight_config(row):
+    # TODO(pwaller):
+    pass
+
+
+def main(args):
+
+    INPUT_CSV_PATH = "collector-config/GoogleAnalyticsQueries - Searches.csv"
+
+    for row in load_csv_as_json(INPUT_CSV_PATH):
+        output_bucket_config(row)
+        output_ga_collector_config(row)
+        output_spotlight_config(row)
+
+
 if __name__ == '__main__':
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
+    args = docopt(__doc__)
+    main(args)
 
 # References
 # Dictionary Flattening:
