@@ -61,7 +61,7 @@
     {
       "slug": "most-popular-content",
       "module-type": "table",
-      "title": "Most most content",
+      "title": "Most popular content",
       "description": "",
       "data-group": "gov_uk_content",
       "data-type": "top-count",
@@ -96,7 +96,7 @@
     {
       "slug": "how-users-access-the-service",
       "module-type": "grouped_timeseries",
-      "title": "How people access GOV.UK",
+      "title": "How users access the service",
       "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
       "data-group": "govuk",
       "data-type": "devices",
@@ -143,7 +143,7 @@
     {
       "slug": "new-visitors-vs-returning-visitors",
       "module-type": "grouped_timeseries",
-      "title": "How people access GOV.UK",
+      "title": "New visitors vs returning visitors",
       "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
       "data-group": "govuk",
       "data-type": "devices",
@@ -190,7 +190,7 @@
     {
       "slug": "top-department-referrers",
       "module-type": "table",
-      "title": "Most most content",
+      "title": "Top department referrers",
       "description": "",
       "data-group": "gov_uk_content",
       "data-type": "top-count",
@@ -225,7 +225,7 @@
     {
       "slug": "total-feedback-received",
       "module-type": "completion_rate",
-      "title": "Traffic to department content",
+      "title": "Total feedback received",
       "description": "",
       "data-group": "gov_uk_content",
       "data-type": "visitors-count",
@@ -261,7 +261,7 @@
     {
       "slug": "most-commented-pages",
       "module-type": "table",
-      "title": "Most most content",
+      "title": "Most commented pages",
       "description": "",
       "data-group": "gov_uk_content",
       "data-type": "top-count",
