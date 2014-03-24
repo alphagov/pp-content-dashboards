@@ -97,7 +97,9 @@ def load_csv_as_json(path):
 
 
 def output_bucket_config(row):
-    row["dataType"]
+    # row["dataType"]
+    print("invoke create_bucket {dataGroup} {dataGroup} {dataType} --token=scraperwiki"
+          .format(**row))
 
 
 def output_ga_collector_config(row, args):
