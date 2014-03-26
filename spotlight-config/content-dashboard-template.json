@@ -23,7 +23,7 @@
   "modules": [
   {
       "slug": "traffic-to-department-content",
-      "module-type": "completion_rate",
+      "module-type": "completion_numbers",
       "title": "Traffic to department content",
       "description": "",
       "data-group": "gov_uk_content",
@@ -37,8 +37,8 @@
       "value-attribute": "monthly_spend:sum",
       "period": "month",
       "tabs": [
-        {"id": "monthly_spend:sum", "name": "Unique visits"},
-        {"id": "count:sum", "name": "Unique pageviews"}
+        {"id": "monthly_spend:sum", "name": "Visitors"},
+        {"id": "count:sum", "name": "Pageviews"}
       ],
       "tabbed_attr": "collect",
       "category": "sme_large",
@@ -99,7 +99,7 @@
       "module-type": "grouped_timeseries",
       "title": "How users access the service",
       "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
-      "data-group": "govuk",
+      "data-group": "gov_uk_content",
       "data-type": "devices-count",
       "filter-by": "department:{{dept_abbrev}}",
       "category": "deviceCategory",
@@ -147,14 +147,14 @@
       "module-type": "grouped_timeseries",
       "title": "New visitors vs returning visitors",
       "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
-      "data-group": "govuk",
-      "data-type": "devices",
+      "data-group": "gov_uk_content",
+      "data-type": "new_returning-count",
       "filter-by": "department:{{dept_abbrev}}",
-      "category": "deviceCategory",
+      "category": "visitorType",
       "period": "week",
       "axis-period": "month",
       "duration": 52,
-      "value-attr": "visitors:sum",
+      "value-attr": "entrances:sum",
       "show-line-labels": true,
       "one-hundred-percent": true,
       "use_stack": true,
@@ -173,18 +173,13 @@
         },
         "y": [
           {
-            "label": "Desktop",
-            "categoryId": "desktop",
+            "label": "New Visitor",
+            "categoryId": "New Visitor",
             "format": "integer"
           },
           {
-            "label": "Mobile",
-            "categoryId": "mobile",
-            "format": "integer"
-          },
-          {
-            "label": "Tablet",
-            "categoryId": "tablet",
+            "label": "Returning Visitor",
+            "categoryId": "Returning Visitor",
             "format": "integer"
           }
         ]
