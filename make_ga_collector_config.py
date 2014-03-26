@@ -105,12 +105,14 @@ def output_bucket_config(row):
 
 
 def output_ga_collector_config(row, args):
-    template = jinja.from_string(open("collector-config/ga-collector-template.json").read())
+    template = jinja.from_string(
+        open("collector-config/ga-collector-template.json").read())
+
     def jsonify(sep, what):
         def strip(x):
             x = x.strip()
             if x.startswith("ga:"):
-                 x = x[len("ga:"):]
+                x = x[len("ga:"):]
             return x
         return json.dumps([strip(x) for x in what.split(sep)])
 
@@ -125,7 +127,7 @@ def output_ga_collector_config(row, args):
     try:
         os.makedirs("collector-config/output")
     except OSError as e:
-        if e.errno!=errno.EEXIST:
+        if e.errno != errno.EEXIST:
             raise
 
     with open("collector-config/output/{}.json".format(row["dataType"]), "w") as fd:
@@ -135,7 +137,8 @@ def output_ga_collector_config(row, args):
 def output_spotlight_config(ga_row, args):
     # TODO(pwaller):
     row = {}
-    template = jinja.from_string(open("spotlight-config/content-dashboard-template.json").read())
+    template = jinja.from_string(
+        open("spotlight-config/content-dashboard-template.json").read())
 
     row["dashboard_config_name"] = "dft-content-dashboard"
     row["dept_name"] = "Department for Transport"
@@ -144,7 +147,7 @@ def output_spotlight_config(ga_row, args):
     try:
         os.makedirs("spotlight-config/output")
     except OSError as e:
-        if e.errno!=errno.EEXIST:
+        if e.errno != errno.EEXIST:
             raise
 
     with open("spotlight-config/output/{}.json".format(row["dashboard_config_name"]), "w") as fd:

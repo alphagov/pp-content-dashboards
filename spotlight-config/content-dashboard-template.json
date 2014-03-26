@@ -100,7 +100,7 @@
       "title": "How users access the service",
       "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
       "data-group": "govuk",
-      "data-type": "devices",
+      "data-type": "devices-count",
       "filter-by": "department:{{dept_abbrev}}",
       "category": "deviceCategory",
       "period": "week",
