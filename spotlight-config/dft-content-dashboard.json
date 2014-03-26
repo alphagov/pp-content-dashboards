@@ -3,8 +3,7 @@
   "page-type": "dashboard",
   "strapline": "Content Dashboard",
   "title": "Department for Transport (DfT)",
-  "tagline": "Web performance data for the Department of Transport, including site traffic and availability. 
-              <a href='http://www.gov.uk/performance/site-activity'>View GOV.UK site activity</a>",
+  "tagline": "Web performance data for the Department of Transport, including site traffic and availability. <a href='http://www.gov.uk/performance/site-activity'>View GOV.UK site activity</a>",
   "relatedPages": {
     "transaction": {
       "title": "Department for Transport",
@@ -31,17 +30,17 @@
       "data-type": "visitors-count",
       "info": [
       ],
-      "denominator-matcher": "**.*$",
-      "numerator-matcher": "**^Small",
-      "matching-attribute": "**sme_large",
-      "value-attribute": "**monthly_spend:sum",
+      "denominator-matcher": ".*$",
+      "numerator-matcher": "^Small",
+      "matching-attribute": "sme_large",
+      "value-attribute": "monthly_spend:sum",
       "period": "month",
       "tabs": [
-        {"id": "**monthly_spend:sum", "name": "Unique visits"},
-        {"id": "**count:sum", "name": "Unique pageviews"}
+        {"id": "monthly_spend:sum", "name": "Unique visits"},
+        {"id": "count:sum", "name": "Unique pageviews"}
       ],
-      "tabbed_attr": "**collect",
-      "category": "**sme_large",
+      "tabbed_attr": "collect",
+      "category": "sme_large",
       "axes": {
         "x": {
           "label": "Date of sales",
@@ -53,7 +52,7 @@
         },
         "y": [
           {
-            "label": "**Percentage of sales to SMEs"
+            "label": "Percentage of sales to SMEs"
           }
         ]
       }
@@ -80,18 +79,18 @@
         "y": [
           {
             "label": "Visits",
-            "key": "**count:sum",
+            "key": "count:sum",
             "format": "integer"
           },
           {
             "label": "Percentage of visits",
-            "key": "**percentOfTotal(count:sum)",
+            "key": "percentOfTotal(count:sum)",
             "format": "percent"
           }
         ]
       },
-      "sort-by": "**count:sum",
-      "sort-order": "**descending"
+      "sort-by": "count:sum",
+      "sort-order": "descending"
     },
     {
       "slug": "how-users-access-the-service",
@@ -209,18 +208,18 @@
         "y": [
           {
             "label": "Visits",
-            "key": "**count:sum",
+            "key": "count:sum",
             "format": "integer"
           },
           {
             "label": "Percentage of visits",
-            "key": "**percentOfTotal(count:sum)",
+            "key": "percentOfTotal(count:sum)",
             "format": "percent"
           }
         ]
       },
-      "sort-by": "**count:sum",
-      "sort-order": "**descending"
+      "sort-by": "count:sum",
+      "sort-order": "descending"
     },
     {
       "slug": "total-feedback-received",
@@ -231,17 +230,17 @@
       "data-type": "visitors-count",
       "info": [
       ],
-      "denominator-matcher": "**.*$",
-      "numerator-matcher": "**^Small",
-      "matching-attribute": "**sme_large",
-      "value-attribute": "**monthly_spend:sum",
+      "denominator-matcher": ".*$",
+      "numerator-matcher": "^Small",
+      "matching-attribute": "sme_large",
+      "value-attribute": "monthly_spend:sum",
       "period": "month",
       "tabs": [
-        {"id": "**monthly_spend:sum", "name": "Unique visits"},
-        {"id": "**count:sum", "name": "Unique pageviews"}
+        {"id": "monthly_spend:sum", "name": "Unique visits"},
+        {"id": "count:sum", "name": "Unique pageviews"}
       ],
-      "tabbed_attr": "**collect",
-      "category": "**sme_large",
+      "tabbed_attr": "collect",
+      "category": "sme_large",
       "axes": {
         "x": {
           "label": "Date of sales",
@@ -253,7 +252,7 @@
         },
         "y": [
           {
-            "label": "**Percentage of sales to SMEs"
+            "label": "Percentage of sales to SMEs"
           }
         ]
       }
@@ -280,18 +279,18 @@
         "y": [
           {
             "label": "Visits",
-            "key": "**count:sum",
+            "key": "count:sum",
             "format": "integer"
           },
           {
             "label": "Percentage of visits",
-            "key": "**percentOfTotal(count:sum)",
+            "key": "percentOfTotal(count:sum)",
             "format": "percent"
           }
         ]
       },
-      "sort-by": "**count:sum",
-      "sort-order": "**descending"
+      "sort-by": "count:sum",
+      "sort-order": "descending"
     }
   ]
 }

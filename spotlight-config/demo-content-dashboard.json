@@ -1,0 +1,121 @@
+{
+  "slug": "demo-content-dashboard",
+  "page-type": "dashboard",
+  "strapline": "Content Dashboard",
+  "title": "Multi-department dashboard",
+  "tagline": "A demo dashboard containing content from multiple departments",
+  "relatedPages": {
+    "transaction": {
+      "title": "Department for Transport",
+      "url" : "https://www.gov.uk/government/organisations/department-for-transport"
+    },
+    "other": [
+      {
+        "title": "DfT policies",
+        "url": "https://www.gov.uk/government/policies?departments%5B%5D=department-for-transport"
+      },
+      {
+        "title": "Dft publications",
+        "url": "https://www.gov.uk/government/publications?departments%5B%5D=department-for-transport"
+      }
+    ]
+  },
+  "modules": [
+  {
+      "slug": "how-users-access-the-service-dft",
+      "module-type": "grouped_timeseries",
+      "title": "How users access the service",
+      "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on DfT over time",
+      "data-group": "gov_uk_content",
+      "data-type": "devices-count",
+      "category": "deviceCategory",
+      "filter-by": ["department:DFT"],
+      "period": "week",
+      "axis-period": "month",
+      "duration": 52,
+      "value-attr": "visitors:sum",
+      "show-line-labels": true,
+      "one-hundred-percent": true,
+      "use_stack": true,
+      "info": [
+        "Data source: Google Analytics",
+        "Desktop category includes traffic from desktops and laptops"
+      ],
+      "axes": {
+        "x": {
+          "label": "Date",
+          "key": ["_start_at", "_end_at"],
+          "format": {
+            "type": "dateRange",
+            "format": "D MMM YYYY"
+          }
+        },
+        "y": [
+          {
+            "label": "Desktop",
+            "categoryId": "desktop",
+            "format": "integer"
+          },
+          {
+            "label": "Mobile",
+            "categoryId": "mobile",
+            "format": "integer"
+          },
+          {
+            "label": "Tablet",
+            "categoryId": "tablet",
+            "format": "integer"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "how-users-access-the-service-dwp",
+      "module-type": "grouped_timeseries",
+      "title": "How users access the service",
+      "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on DWP over time",
+      "data-group": "gov_uk_content",
+      "data-type": "devices-count",
+      "category": "deviceCategory",
+      "filter-by": ["department:DWP"],
+      "period": "week",
+      "axis-period": "month",
+      "duration": 52,
+      "value-attr": "visitors:sum",
+      "show-line-labels": true,
+      "one-hundred-percent": true,
+      "use_stack": true,
+      "info": [
+        "Data source: Google Analytics",
+        "Desktop category includes traffic from desktops and laptops"
+      ],
+      "axes": {
+        "x": {
+          "label": "Date",
+          "key": ["_start_at", "_end_at"],
+          "format": {
+            "type": "dateRange",
+            "format": "D MMM YYYY"
+          }
+        },
+        "y": [
+          {
+            "label": "Desktop",
+            "categoryId": "desktop",
+            "format": "integer"
+          },
+          {
+            "label": "Mobile",
+            "categoryId": "mobile",
+            "format": "integer"
+          },
+          {
+            "label": "Tablet",
+            "categoryId": "tablet",
+            "format": "integer"
+          }
+        ]
+      }
+    }
+  ]
+}
