@@ -16,7 +16,9 @@ from __future__ import unicode_literals
 import codecs
 import collections
 import csv
+import errno
 import json
+import os
 import sys
 
 import docopt
@@ -103,12 +105,14 @@ def output_bucket_config(row):
 
 
 def output_ga_collector_config(row, args):
-    template = jinja.from_string(open("collector-config/ga-collector-template.json").read())
+    template = jinja.from_string(
+        open("collector-config/ga-collector-template.json").read())
+
     def jsonify(sep, what):
         def strip(x):
             x = x.strip()
             if x.startswith("ga:"):
-                 x = x[len("ga:"):]
+                x = x[len("ga:"):]
             return x
         return json.dumps([strip(x) for x in what.split(sep)])
 
@@ -120,13 +124,34 @@ def output_ga_collector_config(row, args):
     row["bearer_token"] = "scraperwiki"
     row["backdrop_target"] = "http://localhost:3039/data"
 
+    try:
+        os.makedirs("collector-config/output")
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+
     with open("collector-config/output/{}.json".format(row["dataType"]), "w") as fd:
         fd.write(template.render(**row))
 
 
-def output_spotlight_config(row):
+def output_spotlight_config(ga_row, args):
     # TODO(pwaller):
-    pass
+    row = {}
+    template = jinja.from_string(
+        open("spotlight-config/content-dashboard-template.json").read())
+
+    row["dashboard_config_name"] = "dft-content-dashboard"
+    row["dept_name"] = "Department for Transport"
+    row["dept_abbrev"] = "DFT"
+    row["dept_slug"] = "department-for-transport"
+    try:
+        os.makedirs("spotlight-config/output")
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+
+    with open("spotlight-config/output/{}.json".format(row["dashboard_config_name"]), "w") as fd:
+        fd.write(template.render(**row))
 
 
 def main(args):
@@ -136,7 +161,7 @@ def main(args):
     for row in load_csv_as_json(INPUT_CSV_PATH):
         output_bucket_config(row)
         output_ga_collector_config(row, args)
-        output_spotlight_config(row)
+        output_spotlight_config(row, args)
 
 
 if __name__ == '__main__':
