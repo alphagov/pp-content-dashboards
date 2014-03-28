@@ -7,9 +7,9 @@ The JSON config files which are displayed can be linked here:
 /Users/ianhopkinson/govuk/spotlight/app/support/stagecraft_stub/responses
 
 spotlight-config abbreviations for a template:
-{{dept_name}} - this is the long form name
-{{dept_abbrev}} - this is the abbreviation both for humans and for filter-by
-{{dept_slug}} - this is the department slug used to construct urls to policies, the department, etc
+- `{{dept_name}}` - this is the long form name
+- `{{dept_abbrev}}` - this is the abbreviation both for humans and for filter-by
+- `{{dept_slug}}` - this is the department slug used to construct urls to policies, the department, etc
 
 Validation, internally Spotlight does this:
 https://github.com/alphagov/spotlight/blob/master/tools/stagecraft-generate-module-stubs.js
