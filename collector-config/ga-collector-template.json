@@ -4,14 +4,16 @@
     "id": "ga:{{ga_id}}",
     "metrics": {{metrics}},
     "dimensions": {{dimensions}},
-    "filters": {{filters}},
-    "plugins": [
-        "gds.ga.plugins.scraperwiki:compute_department",
-        "gds.ga.plugins.scraperwiki:aggregate_department"
-    ]
+    "filters": {{filters}}
   },
   "target": {
     "url": "{{backdrop_target}}/{{dataGroup}}/{{dataType}}",
     "token": "{{bearer_token}}"
-  }
+  },
+  "plugins": [
+    "ComputeDepartmentKey('customVarValue9')",
+    "RemoveKey('customVarValue9', '_id', 'humanId')",
+    "AggregateKey({{aggregation_params}})",
+    "ComputeIdFrom('_timestamp', 'timeSpan', 'dataType', 'department', {{id_params}})"
+  ]
 }

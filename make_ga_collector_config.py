@@ -109,18 +109,30 @@ def output_ga_collector_config(row, args):
     template = jinja.from_string(
         open("collector-config/ga-collector-template.json").read())
 
-    def jsonify(sep, what):
+    def split(sep, what):
         def strip(x):
             x = x.strip()
             if x.startswith("ga:"):
                 x = x[len("ga:"):]
             return x
-        return json.dumps([strip(x) for x in what.split(sep)])
+        return [strip(x) for x in what.split(sep)]
+
+    metrics = split(",", row["Metrics"])
+    dimensions = split(",", row["Dimensions"])
+    filters = split(";", row["Filters"])
 
     row["ga_id"] = args["<ga-id>"]
-    row["metrics"] = jsonify(",", row["Metrics"])
-    row["dimensions"] = jsonify(",", row["Dimensions"])
-    row["filters"] = jsonify(";", row["Filters"])
+    row["metrics"] = json.dumps(metrics)
+    row["dimensions"] = json.dumps(dimensions)
+    row["filters"] = json.dumps(filters)
+
+    row["id_params"] = ", ".join("'{}'".format(m) for m in metrics)
+
+    def agg(m):
+        func = "aggregate_count"
+        return "{}('{}')".format(func, m)
+
+    row["aggregation_params"] = ", ".join(agg(m) for m in metrics)
 
     row["bearer_token"] = "scraperwiki"
     row["backdrop_target"] = "http://localhost:3039/data"
