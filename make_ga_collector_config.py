@@ -100,8 +100,9 @@ def load_csv_as_json(path):
 
 def output_bucket_config(row):
     # row["dataType"]
-    print("invoke create_bucket {dataGroup} {dataGroup} {dataType} --token=scraperwiki"
-          .format(**row))
+    row['dataTypeUnderscores'] = row['dataType'].replace("-", "_")
+    print("invoke create_bucket {dataGroup}_{dataTypeUnderscores} {dataGroup} {dataType} "
+          "--token=scraperwiki".format(**row))
 
 
 def output_ga_collector_config(row, args):
