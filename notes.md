@@ -21,6 +21,7 @@ but we need to switch the BackdropUrl config here:
 /spotlight/config/config.development_bowl_vm.json
 
 Original version:
+```json
 {
   "assetPath": "/assets/",
   "port": 3057,
@@ -29,6 +30,7 @@ Original version:
   "screenshotServiceUrl": "http://spotlight.perfplat.dev:3000",
   "govukHost": "spotlight.dev.gov.uk"
 }
+```
 
 Modified line:
 "backdropUrl": "https://www.preview.performance.service.gov.uk/data/{{ data-group }}/{{ data-type }}",
