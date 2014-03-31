@@ -1,5 +1,5 @@
 {
-  "dataType": "{{dataGroup}}_{{dataType}}",
+  "dataType": "{{dataType}}",
   "query": {
     "id": "ga:{{ga_id}}",
     "metrics": {{metrics}},
