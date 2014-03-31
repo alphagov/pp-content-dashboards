@@ -188,7 +188,10 @@ def main(args):
     for row in load_csv_as_json(INPUT_CSV_PATH):
         output_bucket_config(row)
         output_ga_collector_config(row, args)
-        output_spotlight_config(row, args)
+
+    return
+    for department in load_csv_as_json(INPUT_CSV_PATH):
+        output_spotlight_config(department, args)
 
 
 if __name__ == '__main__':
