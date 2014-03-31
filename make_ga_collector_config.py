@@ -107,10 +107,13 @@ def output_bucket_config(row):
 
 
 def output_ga_collector_config(row, args):
+
     template = jinja.from_string(
         open("collector-config/ga-collector-template.json").read())
 
     def split(sep, what):
+        if not what:
+            return []
         def strip(x):
             x = x.strip()
             if x.startswith("ga:"):
@@ -121,6 +124,10 @@ def output_ga_collector_config(row, args):
     metrics = split(",", row["Metrics"])
     dimensions = split(",", row["Dimensions"])
     filters = split(";", row["Filters"])
+
+    if not metrics:
+        print "Skipping {} (no metrics)".format(row["dataType"])
+        return
 
     row["ga_id"] = args["<ga-id>"]
     row["metrics"] = json.dumps(metrics)
