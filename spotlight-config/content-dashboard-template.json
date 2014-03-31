@@ -74,42 +74,6 @@
       }
     },
     {
-      "slug": "most-popular-content",
-      "module-type": "table",
-      "title": "Most popular content",
-      "description": "",
-      "data-group": "gov_uk_content",
-      "data-type": "top-count",
-      "filter-by": "department:{{dept_slug}}",
-      "query-params": {
-        "filter_by": "type:tax-disc",
-        "group_by": "reason",
-        "collect": ["count:sum", "description:set"],
-        "period": "week",
-        "duration": 1
-      },
-      "axes": {
-        "x": {
-          "label": "Department",
-          "key": "description:set"
-        },
-        "y": [
-          {
-            "label": "Visits",
-            "key": "count:sum",
-            "format": "integer"
-          },
-          {
-            "label": "Percentage of visits",
-            "key": "percentOfTotal(count:sum)",
-            "format": "percent"
-          }
-        ]
-      },
-      "sort-by": "count:sum",
-      "sort-order": "descending"
-    },
-    {
       "slug": "how-users-access-the-service",
       "module-type": "grouped_timeseries",
       "title": "How users access the service",
@@ -199,6 +163,42 @@
           }
         ]
       }
+    },
+    {
+      "slug": "most-popular-content",
+      "module-type": "table",
+      "title": "Most popular content",
+      "description": "",
+      "data-group": "gov_uk_content",
+      "data-type": "top-count",
+      "filter-by": "department:{{dept_slug}}",
+      "query-params": {
+        "filter_by": "type:tax-disc",
+        "group_by": "reason",
+        "collect": ["count:sum", "description:set"],
+        "period": "week",
+        "duration": 1
+      },
+      "axes": {
+        "x": {
+          "label": "Department",
+          "key": "description:set"
+        },
+        "y": [
+          {
+            "label": "Visits",
+            "key": "count:sum",
+            "format": "integer"
+          },
+          {
+            "label": "Percentage of visits",
+            "key": "percentOfTotal(count:sum)",
+            "format": "percent"
+          }
+        ]
+      },
+      "sort-by": "count:sum",
+      "sort-order": "descending"
     },
     {
       "slug": "top-department-referrers",
