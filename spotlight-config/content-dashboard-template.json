@@ -21,39 +21,54 @@
     ]
   },
   "modules": [
-  {
+    {
       "slug": "traffic-to-department-content",
       "module-type": "completion_numbers",
       "title": "Traffic to department content",
       "description": "",
       "data-group": "gov_uk_content",
-      "data-type": "visitors-count",
+      "data-type": "traffic-count",
       "filter-by": "department:{{dept_slug}}",
       "info": [
       ],
-      "denominator-matcher": ".*$",
-      "numerator-matcher": "^Small",
-      "matching-attribute": "sme_large",
-      "value-attribute": "monthly_spend:sum",
-      "period": "month",
-      "tabs": [
-        {"id": "monthly_spend:sum", "name": "Visitors"},
-        {"id": "count:sum", "name": "Pageviews"}
-      ],
-      "tabbed_attr": "collect",
-      "category": "sme_large",
+      "denominator-matcher": "department",
+      "numerator-matcher": "department",
+      "matching-attribute": "department",
+      "value-attribute": "visitors:sum",
+      "period": "week",
       "axes": {
         "x": {
-          "label": "Date of sales",
-          "format": {
-            "type": "date",
-            "format": "MMMM YYYY"
-          },
-          "key": "_start_at"
+          "label": "Date"
         },
         "y": [
           {
-            "label": "Percentage of sales to SMEs"
+            "label": "Number of visitors"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "department-content-pageviews",
+      "module-type": "completion_numbers",
+      "title": "(TODO: Pageviews, tab with the above)",
+      "description": "",
+      "data-group": "gov_uk_content",
+      "data-type": "pageviews-count",
+      "filter-by": "department:{{dept_slug}}",
+      "info": [
+      ],
+      "denominator-matcher": "department",
+      "numerator-matcher": "department",
+      "matching-attribute": "department",
+      "value-attribute": "pageviews:sum",
+      "period": "week",
+      "axes": {
+        "x": {
+          "label": "Date"
+        },
+        "y": [
+          {
+            "label": "Number of visitors"
           }
         ]
       }
