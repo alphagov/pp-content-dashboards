@@ -134,7 +134,10 @@ def output_ga_collector_config(row, args):
     row["dimensions"] = json.dumps(dimensions)
     row["filters"] = json.dumps(filters)
 
-    row["id_params"] = ", ".join("'{}'".format(m) for m in metrics)
+    # Hardwired in template
+    dimensions.remove("customVarValue9")
+
+    row["id_params"] = ", ".join("'{}'".format(m) for m in dimensions)
 
     def agg(m):
         func = "aggregate_count"
