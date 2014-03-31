@@ -28,7 +28,7 @@
       "description": "",
       "data-group": "gov_uk_content",
       "data-type": "visitors-count",
-      "filter-by": "department:{{dept_abbrev}}",
+      "filter-by": "department:{{dept_slug}}",
       "info": [
       ],
       "denominator-matcher": ".*$",
@@ -65,7 +65,7 @@
       "description": "",
       "data-group": "gov_uk_content",
       "data-type": "top-count",
-      "filter-by": "department:{{dept_abbrev}}",
+      "filter-by": "department:{{dept_slug}}",
       "query-params": {
         "filter_by": "type:tax-disc",
         "group_by": "reason",
@@ -101,7 +101,7 @@
       "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
       "data-group": "gov_uk_content",
       "data-type": "devices-count",
-      "filter-by": "department:{{dept_abbrev}}",
+      "filter-by": "department:{{dept_slug}}",
       "category": "deviceCategory",
       "period": "week",
       "axis-period": "month",
@@ -149,7 +149,7 @@
       "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
       "data-group": "gov_uk_content",
       "data-type": "new_returning-count",
-      "filter-by": "department:{{dept_abbrev}}",
+      "filter-by": "department:{{dept_slug}}",
       "category": "visitorType",
       "period": "week",
       "axis-period": "month",
@@ -192,7 +192,7 @@
       "description": "",
       "data-group": "gov_uk_content",
       "data-type": "top-count",
-      "filter-by": "department:{{dept_abbrev}}",
+      "filter-by": "department:{{dept_slug}}",
       "query-params": {
         "filter_by": "type:tax-disc",
         "group_by": "reason",
@@ -228,7 +228,7 @@
       "description": "",
       "data-group": "gov_uk_content",
       "data-type": "visitors-count",
-      "filter-by": "department:{{dept_abbrev}}",
+      "filter-by": "department:{{dept_slug}}",
       "info": [
       ],
       "denominator-matcher": ".*$",
@@ -265,7 +265,7 @@
       "description": "",
       "data-group": "gov_uk_content",
       "data-type": "top-count",
-      "filter-by": "department:{{dept_abbrev}}",
+      "filter-by": "department:{{dept_slug}}",
       "query-params": {
         "filter_by": "type:tax-disc",
         "group_by": "reason",
