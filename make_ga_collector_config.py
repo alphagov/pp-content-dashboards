@@ -101,7 +101,8 @@ def load_csv_as_json(path):
 def output_bucket_config(row):
     # row["dataType"]
     row['dataTypeUnderscores'] = row['dataType'].replace("-", "_")
-    print("invoke create_bucket {dataGroup}_{dataTypeUnderscores} {dataGroup} {dataType} "
+    print("invoke create_bucket --rawqueries {dataGroup}_{dataTypeUnderscores}"
+          " {dataGroup} {dataType} "
           "--token=scraperwiki".format(**row))
 
 
