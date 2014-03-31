@@ -189,8 +189,12 @@ def main(args):
         output_bucket_config(row)
         output_ga_collector_config(row, args)
 
-    return
-    for department in load_csv_as_json(INPUT_CSV_PATH):
+    # TODO(pwaller): Need to introduce this
+    # departments = load_csv_as_json(INPUT_CSV_PATH)
+    run_once = [None]
+    departments = run_once
+
+    for department in departments:
         output_spotlight_config(department, args)
 
 
