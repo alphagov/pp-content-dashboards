@@ -154,7 +154,8 @@ def output_ga_collector_config(row, args):
         if e.errno != errno.EEXIST:
             raise
 
-    with open("collector-config/output/{}.json".format(row["dataType"]), "w") as fd:
+    path = "collector-config/output/{}.json".format(row["dataType"])
+    with open(path, "w") as fd:
         fd.write(template.render(**row))
 
 
@@ -174,7 +175,9 @@ def output_spotlight_config(ga_row, args):
         if e.errno != errno.EEXIST:
             raise
 
-    with open("spotlight-config/output/{}.json".format(row["dashboard_config_name"]), "w") as fd:
+    fmt = "spotlight-config/output/{}.json"
+    path = fmt.format(row["dashboard_config_name"])
+    with open(path, "w") as fd:
         fd.write(template.render(**row))
 
 
