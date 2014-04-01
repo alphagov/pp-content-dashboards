@@ -118,6 +118,7 @@ def output_ga_collector_config(row, args):
     def split(sep, what):
         if not what:
             return []
+
         def strip(x):
             x = x.strip()
             if x.startswith("ga:"):
