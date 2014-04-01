@@ -159,16 +159,10 @@ def output_ga_collector_config(row, args):
         fd.write(template.render(**row))
 
 
-def output_spotlight_config(ga_row, args):
-    # TODO(pwaller):
-    row = {}
+def output_spotlight_config(row, args):
     template = jinja.from_string(
         open("spotlight-config/content-dashboard-template.json").read())
 
-    row["dashboard_config_name"] = "dft-content-dashboard"
-    row["dept_name"] = "Department for Transport"
-    row["dept_abbrev"] = "DFT"
-    row["dept_slug"] = "department-for-transport"
     try:
         os.makedirs("spotlight-config/output")
     except OSError as e:
@@ -191,8 +185,20 @@ def main(args):
 
     # TODO(pwaller): Need to introduce this
     # departments = load_csv_as_json(INPUT_CSV_PATH)
-    run_once = [None]
-    departments = run_once
+    departments = [
+        {
+            "dashboard_config_name": "dft-content-dashboard",
+            "dept_name": "Department for Transport",
+            "dept_abbrev": "DFT",
+            "dept_slug": "department-for-transport",
+        },
+        {
+            "dashboard_config_name": "dfe-content-dashboard",
+            "dept_name": "Department for Education",
+            "dept_abbrev": "DFE",
+            "dept_slug": "department-for-education",
+        }
+    ]
 
     for department in departments:
         output_spotlight_config(department, args)
