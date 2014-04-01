@@ -26,7 +26,7 @@
       "module-type": "completion_numbers",
       "title": "Traffic to department content",
       "description": "",
-      "data-group": "gov_uk_content",
+      "data-group": "gov-uk-content",
       "data-type": "traffic-count",
       "info": [
       ],
@@ -51,7 +51,7 @@
       "module-type": "completion_numbers",
       "title": "(TODO: Pageviews, tab with the above)",
       "description": "",
-      "data-group": "gov_uk_content",
+      "data-group": "gov-uk-content",
       "data-type": "pageviews-count",
       "info": [
       ],
@@ -76,7 +76,7 @@
       "module-type": "grouped_timeseries",
       "title": "How users access the service",
       "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
-      "data-group": "gov_uk_content",
+      "data-group": "gov-uk-content",
       "data-type": "devices-count",
       "filter-by": "department:{{dept_slug}}",
       "category": "deviceCategory",
@@ -124,7 +124,7 @@
       "module-type": "grouped_timeseries",
       "title": "New visitors vs returning visitors",
       "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
-      "data-group": "gov_uk_content",
+      "data-group": "gov-uk-content",
       "data-type": "new_returning-count",
       "filter-by": "department:{{dept_slug}}",
       "category": "visitorType",
@@ -167,7 +167,7 @@
       "module-type": "table",
       "title": "Most popular content",
       "description": "",
-      "data-group": "gov_uk_content",
+      "data-group": "gov-uk-content",
       "data-type": "top-count",
       "filter-by": "department:{{dept_slug}}",
       "query-params": {
@@ -203,7 +203,7 @@
       "module-type": "table",
       "title": "Top department referrers",
       "description": "",
-      "data-group": "gov_uk_content",
+      "data-group": "gov-uk-content",
       "data-type": "top-count",
       "filter-by": "department:{{dept_slug}}",
       "query-params": {
@@ -239,7 +239,7 @@
       "module-type": "completion_rate",
       "title": "Total feedback received",
       "description": "",
-      "data-group": "gov_uk_content",
+      "data-group": "gov-uk-content",
       "data-type": "visitors-count",
       "filter-by": "department:{{dept_slug}}",
       "info": [
@@ -276,7 +276,7 @@
       "module-type": "table",
       "title": "Most commented pages",
       "description": "",
-      "data-group": "gov_uk_content",
+      "data-group": "gov-uk-content",
       "data-type": "top-count",
       "filter-by": "department:{{dept_slug}}",
       "query-params": {
