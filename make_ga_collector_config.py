@@ -161,6 +161,9 @@ def output_ga_collector_config(row, args):
         if e.errno != errno.EEXIST:
             raise
 
+    # Data type must be -'ified
+    row["dataType"] = row["dataType"].replace("_", "-")
+
     path = "collector-config/output/{}.json".format(row["dataType"])
     with open(path, "w") as fd:
         fd.write(template.render(**row))
