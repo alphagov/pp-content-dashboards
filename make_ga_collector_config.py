@@ -4,10 +4,14 @@
 
 Usage:
   make_ga_collector_config.py --ga-id <ga-id>
+                              [--target <backdrop-target>]
+                              [--token <bearer-token>]
 
 Options:
   -h --help     Show this screen
-  --ga-id       8-digit GA query ID
+  -g --ga-id    8-digit GA query ID
+  -T --target   Backdrop endpoint
+  -t --token    Bearer token
 
 """
 
@@ -145,8 +149,10 @@ def output_ga_collector_config(row, args):
 
     row["aggregation_params"] = ", ".join(agg(m) for m in metrics)
 
-    row["bearer_token"] = "scraperwiki"
-    row["backdrop_target"] = "http://localhost:3039/data"
+    row["bearer_token"] = args["<bearer-token>"]
+    row["backdrop_target"] = args["<backdrop-target>"]
+    data_type = row['dataType'].replace("-", "_")
+    row["bucket_name"] = "{}_{}".format(row['dataGroup'], data_type)
 
     try:
         os.makedirs("collector-config/output")
