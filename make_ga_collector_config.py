@@ -4,10 +4,14 @@
 
 Usage:
   make_ga_collector_config.py --ga-id <ga-id>
+                              [--target <backdrop-target>]
+                              [--token <bearer-token>]
 
 Options:
   -h --help     Show this screen
-  --ga-id       8-digit GA query ID
+  -g --ga-id    8-digit GA query ID
+  -T --target   Backdrop endpoint
+  -t --token    Bearer token
 
 """
 
@@ -101,15 +105,20 @@ def load_csv_as_json(path):
 def output_bucket_config(row):
     # row["dataType"]
     row['dataTypeUnderscores'] = row['dataType'].replace("-", "_")
-    print("invoke create_bucket {dataGroup}_{dataTypeUnderscores} {dataGroup} {dataType} "
+    print("invoke create_bucket --rawqueries {dataGroup}_{dataTypeUnderscores}"
+          " {dataGroup} {dataType} "
           "--token=scraperwiki".format(**row))
 
 
 def output_ga_collector_config(row, args):
+
     template = jinja.from_string(
         open("collector-config/ga-collector-template.json").read())
 
     def split(sep, what):
+        if not what:
+            return []
+
         def strip(x):
             x = x.strip()
             if x.startswith("ga:"):
@@ -121,12 +130,19 @@ def output_ga_collector_config(row, args):
     dimensions = split(",", row["Dimensions"])
     filters = split(";", row["Filters"])
 
+    if not metrics:
+        print "Skipping {} (no metrics)".format(row["dataType"])
+        return
+
     row["ga_id"] = args["<ga-id>"]
     row["metrics"] = json.dumps(metrics)
     row["dimensions"] = json.dumps(dimensions)
     row["filters"] = json.dumps(filters)
 
-    row["id_params"] = ", ".join("'{}'".format(m) for m in metrics)
+    # Hardwired in template
+    dimensions.remove("customVarValue9")
+
+    row["id_params"] = ", ".join("'{}'".format(m) for m in dimensions)
 
     def agg(m):
         func = "aggregate_count"
@@ -134,8 +150,10 @@ def output_ga_collector_config(row, args):
 
     row["aggregation_params"] = ", ".join(agg(m) for m in metrics)
 
-    row["bearer_token"] = "scraperwiki"
-    row["backdrop_target"] = "http://localhost:3039/data"
+    row["bearer_token"] = args["<bearer-token>"]
+    row["backdrop_target"] = args["<backdrop-target>"]
+    data_type = row['dataType'].replace("-", "_")
+    row["bucket_name"] = "{}_{}".format(row['dataGroup'], data_type)
 
     try:
         os.makedirs("collector-config/output")
@@ -143,27 +161,27 @@ def output_ga_collector_config(row, args):
         if e.errno != errno.EEXIST:
             raise
 
-    with open("collector-config/output/{}.json".format(row["dataType"]), "w") as fd:
+    # Data type must be -'ified
+    row["dataType"] = row["dataType"].replace("_", "-")
+
+    path = "collector-config/output/{}.json".format(row["dataType"])
+    with open(path, "w") as fd:
         fd.write(template.render(**row))
 
 
-def output_spotlight_config(ga_row, args):
-    # TODO(pwaller):
-    row = {}
+def output_spotlight_config(row, args):
     template = jinja.from_string(
         open("spotlight-config/content-dashboard-template.json").read())
 
-    row["dashboard_config_name"] = "dft-content-dashboard"
-    row["dept_name"] = "Department for Transport"
-    row["dept_abbrev"] = "DFT"
-    row["dept_slug"] = "department-for-transport"
     try:
         os.makedirs("spotlight-config/output")
     except OSError as e:
         if e.errno != errno.EEXIST:
             raise
 
-    with open("spotlight-config/output/{}.json".format(row["dashboard_config_name"]), "w") as fd:
+    fmt = "spotlight-config/output/{}.json"
+    path = fmt.format(row["dashboard_config_name"])
+    with open(path, "w") as fd:
         fd.write(template.render(**row))
 
 
@@ -174,7 +192,26 @@ def main(args):
     for row in load_csv_as_json(INPUT_CSV_PATH):
         output_bucket_config(row)
         output_ga_collector_config(row, args)
-        output_spotlight_config(row, args)
+
+    # TODO(pwaller): Need to introduce this
+    # departments = load_csv_as_json(INPUT_CSV_PATH)
+    departments = [
+        {
+            "dashboard_config_name": "dft-content-dashboard",
+            "dept_name": "Department for Transport",
+            "dept_abbrev": "DFT",
+            "dept_slug": "department-for-transport",
+        },
+        {
+            "dashboard_config_name": "dfe-content-dashboard",
+            "dept_name": "Department for Education",
+            "dept_abbrev": "DFE",
+            "dept_slug": "department-for-education",
+        }
+    ]
+
+    for department in departments:
+        output_spotlight_config(department, args)
 
 
 if __name__ == '__main__':
