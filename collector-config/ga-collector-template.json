@@ -4,7 +4,9 @@
     "id": "ga:{{ga_id}}",
     "metrics": {{metrics}},
     "dimensions": {{dimensions}},
-    "filters": {{filters}}
+    "filters": {{filters}},
+    "sort": {{sort}},
+    "maxResults": {{maxResults}}
   },
   "target": {
     "url": "{{backdrop_target}}/{{bucket_name}}",

@@ -123,12 +123,15 @@ def output_ga_collector_config(row, args):
             x = x.strip()
             if x.startswith("ga:"):
                 x = x[len("ga:"):]
+            if x.startswith("-ga:"):
+                x = "-" + x[len("-ga:"):]
             return x
         return [strip(x) for x in what.split(sep)]
 
     metrics = split(",", row["Metrics"])
     dimensions = split(",", row["Dimensions"])
     filters = split(";", row["Filters"])
+    sort = split(";", row["Sort"])
 
     if not metrics:
         print "Skipping {} (no metrics)".format(row["dataType"])
@@ -138,6 +141,8 @@ def output_ga_collector_config(row, args):
     row["metrics"] = json.dumps(metrics)
     row["dimensions"] = json.dumps(dimensions)
     row["filters"] = json.dumps(filters)
+    row["sort"] = json.dumps(sort)
+    row["maxResults"] = row["maxResults"] or 0
 
     # Hardwired in template
     dimensions.remove("customVarValue9")
