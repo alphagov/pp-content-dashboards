@@ -103,11 +103,11 @@ def load_csv_as_json(path):
 
 
 def output_bucket_config(row):
-    # row["dataType"]
-    row['dataTypeUnderscores'] = row['dataType'].replace("-", "_")
-    print("invoke create_bucket --rawqueries {dataGroup}_{dataTypeUnderscores}"
+    bucket_name = "{dataGroup}_{dataType}".format(**row).replace("-", "_")
+    print("invoke create_bucket --rawqueries {bucket_name}"
           " {dataGroup} {dataType} "
-          "--token=scraperwiki".format(**row))
+          "--token=scraperwiki".format(
+              bucket_name=bucket_name, **row))
 
 
 def output_ga_collector_config(row, args):
@@ -123,12 +123,15 @@ def output_ga_collector_config(row, args):
             x = x.strip()
             if x.startswith("ga:"):
                 x = x[len("ga:"):]
+            if x.startswith("-ga:"):
+                x = "-" + x[len("-ga:"):]
             return x
         return [strip(x) for x in what.split(sep)]
 
     metrics = split(",", row["Metrics"])
     dimensions = split(",", row["Dimensions"])
     filters = split(";", row["Filters"])
+    sort = split(";", row["Sort"])
 
     if not metrics:
         print "Skipping {} (no metrics)".format(row["dataType"])
@@ -138,6 +141,8 @@ def output_ga_collector_config(row, args):
     row["metrics"] = json.dumps(metrics)
     row["dimensions"] = json.dumps(dimensions)
     row["filters"] = json.dumps(filters)
+    row["sort"] = json.dumps(sort)
+    row["maxResults"] = row["maxResults"] or 0
 
     # Hardwired in template
     dimensions.remove("customVarValue9")
@@ -164,7 +169,7 @@ def output_ga_collector_config(row, args):
     # Data type must be -'ified
     row["dataType"] = row["dataType"].replace("_", "-")
 
-    path = "collector-config/output/{}.json".format(row["dataType"])
+    path = "collector-config/output/{}.json".format(row["bucket_name"])
     with open(path, "w") as fd:
         fd.write(template.render(**row))
 
