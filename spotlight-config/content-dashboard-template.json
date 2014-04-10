@@ -136,7 +136,34 @@
           "title": "All pages",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-count"
+          "data-type": "top-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
