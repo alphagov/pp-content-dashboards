@@ -42,6 +42,14 @@ TEMPLATE_GA_CONFIG = OrderedDict([
 ])
 
 
+def make_bool(what):
+    if not what or not isinstance(what, basestring):
+        return False
+    if what.lower() in ("yes", "on", "1", "true", "separate"):
+        return True
+    return False
+
+
 def get_all_keys(d):
     all_keys = []
     for k, v in d.items():
@@ -145,7 +153,8 @@ def output_ga_collector_config(row, args):
     row["maxResults"] = row["maxResults"] or 0
 
     # Hardwired in template
-    dimensions.remove("customVarValue9")
+    if "customVarValue9" in dimensions:
+        dimensions.remove("customVarValue9")
 
     row["id_params"] = ", ".join("'{}'".format(m) for m in dimensions)
 
@@ -157,8 +166,12 @@ def output_ga_collector_config(row, args):
 
     row["bearer_token"] = args["<bearer-token>"]
     row["backdrop_target"] = args["<backdrop-target>"]
-    data_type = row['dataType'].replace("-", "_")
-    row["bucket_name"] = "{}_{}".format(row['dataGroup'], data_type)
+
+    fmt = "{dataGroup}_{dataType}"
+    row["bucket_name"] = fmt.format(**row).replace("-", "_")
+
+    # If we need to have many filtersets
+    row["separateQueries"] = make_bool(row.get("separateQueries"))
 
     try:
         os.makedirs("collector-config/output")
