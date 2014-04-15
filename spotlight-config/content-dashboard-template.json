@@ -432,15 +432,69 @@
           "title": "All referrers",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "PLACEHOLDER"
+          "data-type": "referrers-rate",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "sourceMedium",
+            "collect": ["entrances:sum", "visitBounceRate"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Source medium",
+              "key": "sourceMedium"
+            },
+            "y": [
+              {
+                "label": "Entrances",
+                "key": "entrances:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Bounce rate",
+                "key": "visitBounceRate",
+                "format": "percent"
+              }
+            ]
+          },
+          "sort-by": "entrances:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
-          "slug": "news-pages",
+          "slug": "search-terms",
           "title": "Search terms",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "PLACEHOLDER"
+          "data-type": "organic-rate",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "keyword",
+            "collect": ["entrances:sum", "visitBounceRate"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Keyword",
+              "key": "keyword"
+            },
+            "y": [
+              {
+                "label": "Entrances",
+                "key": "entrances:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Bounce rate",
+                "key": "visitBounceRate",
+                "format": "percent"
+              }
+            ]
+          },
+          "sort-by": "entrances:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -448,7 +502,34 @@
           "title": "Social media",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "PLACEHOLDER"
+          "data-type": "social-rate",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "socialNetwork",
+            "collect": ["entrances:sum", "visitBounceRate"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Social Network",
+              "key": "socialNetwork"
+            },
+            "y": [
+              {
+                "label": "Entrances",
+                "key": "entrances:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Bounce rate",
+                "key": "visitBounceRate",
+                "format": "percent"
+              }
+            ]
+          },
+          "sort-by": "entrances:sum",
+          "sort-order": "descending"
         }
       ]
     },
