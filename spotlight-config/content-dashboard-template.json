@@ -123,7 +123,34 @@
           "title": "News pages",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-news-count"
+          "data-type": "top-news-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -131,7 +158,34 @@
           "title": "Publications",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-publications-count"
+          "data-type": "top-publications-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -139,7 +193,34 @@
           "title": "Consulations",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-consultations-count"
+          "data-type": "top-consultations-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -147,7 +228,34 @@
           "title": "Policies",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-policy-count"
+          "data-type": "top-policy-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -155,7 +263,34 @@
           "title": "Speeches",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-speeches-count"
+          "data-type": "top-speeches-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -163,7 +298,34 @@
           "title": "Collections",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-collections-count"
+          "data-type": "top-collections-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         }
       ]
     },
