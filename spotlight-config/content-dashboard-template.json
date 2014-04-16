@@ -189,8 +189,8 @@
         },
         {
           "module-type": "table",
-          "slug": "consulations",
-          "title": "Consulations",
+          "slug": "consultations",
+          "title": "Consultations",
           "description": "",
           "data-group": "gov-uk-content",
           "data-type": "top-consultations-count",
