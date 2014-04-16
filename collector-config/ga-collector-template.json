@@ -16,7 +16,6 @@
     "ComputeDepartmentKey('customVarValue9')",
     "RemoveKey('customVarValue9', '_id', 'humanId')",
     "AggregateKey({{aggregation_params}})",
-    "ComputeIdFrom('_timestamp', 'timeSpan', 'dataType', 'department', {{id_params}})"
     {% else %}
     "Comment('department computed from filtersets by collect-content-dashboard-table.py')",
     {% endif %}
