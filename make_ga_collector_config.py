@@ -215,16 +215,144 @@ def main(args):
     # departments = load_csv_as_json(INPUT_CSV_PATH)
     departments = [
         {
-            "dashboard_config_name": "dft-content-dashboard",
-            "dept_name": "Department for Transport",
-            "dept_abbrev": "DFT",
-            "dept_slug": "department-for-transport",
+            "dept_abbrev": "AGO",
+            "dept_slug":  "attorney-generals-office",
+            "dept_name": "Attorney General's Office",
         },
         {
-            "dashboard_config_name": "dfe-content-dashboard",
-            "dept_name": "Department for Education",
-            "dept_abbrev": "DFE",
+            "dept_abbrev": "CO",
+            "dept_slug": "cabinet-office",
+            "dept_name": "Cabinet Office",
+        },
+        {
+            "dept_abbrev": "BIS",
+            "dept_slug":  "department-for-business-innovation-skills",
+            "dept_name": "Department for Business, Innovation & Skills"
+        },
+        {
+            "dept_abbrev": "DCLG",
+            "dept_slug": "department-for-communities-and-local-government",
+            "dept_name": "Department for Communities and Local Government",
+        },
+        {
+            "dept_abbrev": "DCMS",
+            "dept_slug": "department-for-culture-media-sport",
+            "dept_name": "Department for Culture, Media & Sport",
+        },
+        {
+            "dept_abbrev": "DfE",
             "dept_slug": "department-for-education",
+            "dept_name": "Department for Education",
+        },
+        {
+            "dept_abbrev": "Defra",
+            "dept_slug": "department-for-environment-food-rural-affairs",
+            "dept_name": "Department for Environment, Food & Rural Affairs",
+        },
+        {
+            "dept_abbrev": "DFID",
+            "dept_slug": "department-for-international-development",
+            "dept_name": "Department for International Development",
+        },
+        {
+            "dept_abbrev": "DFT",
+            "dept_slug": "department-for-transport",
+            "dept_name": "Department for Transport",
+        },
+        {
+            "dept_abbrev": "DWP",
+            "dept_slug": "department-for-work-pensions",
+            "dept_name": "Department for Work and Pensions",
+        },
+        {
+            "dept_abbrev": "DECC",
+            "dept_slug": "department-of-energy-climate-change",
+            "dept_name": "Department of Energy & Climate Change",
+        },
+        {
+            "dept_abbrev": "DH",
+            "dept_slug": "department-of-health",
+            "dept_name": "Department of Health",
+        },
+        {
+            "dept_abbrev": "FCO",
+            "dept_slug": "foreign-commonwealth-office",
+            "dept_name": "Foreign & Commonwealth Office",
+        },
+        {
+            "dept_abbrev": "HMT",
+            "dept_slug": "hm-treasury",
+            "dept_name": "HM Treasury",
+        },
+        {
+            "dept_abbrev": "HO",
+            "dept_slug": "home-office",
+            "dept_name": "Home Office",
+        },
+        {
+            "dept_abbrev": "MOD",
+            "dept_slug": "ministry-of-defence",
+            "dept_name": "Ministry of Defence",
+        },
+        {
+            "dept_abbrev": "MOJ",
+            "dept_slug": "ministry-of-justice",
+            "dept_name": "Ministry of Justice",
+        },
+        {
+            "dept_abbrev": "NIO",
+            "dept_slug": "northern-ireland-office",
+            "dept_name": "Northern Ireland Office",
+        },
+        {
+            "dept_abbrev": "OAG",
+            "dept_slug": "office-of-the-advocate-general-for-scotland",
+            "dept_name": "Office of the Advocate General for Scotland",
+        },
+        {
+            "dept_abbrev": "OLHC",
+            "dept_slug": "the-office-of-the-leader-of-the-house-of-commons",
+            "dept_name": "Office of the Leader of the House of Commons",
+        },
+        {
+            "dept_abbrev": "SO",
+            "dept_slug": "scotland-office",
+            "dept_name": "Scotland Office",
+        },
+        {
+            "dept_abbrev": "WO",
+            "dept_slug": "wales-office",
+            "dept_name": "Wales Office",
+        },
+        {
+            "dept_abbrev": "HMRC",
+            "dept_slug": "hm-revenue-customs",
+            "dept_name": "HM Revenue & Customs",
+        },
+        {
+            "dept_abbrev": "DVLA",
+            "dept_slug": "driver-and-vehicle-licensing-agency",
+            "dept_name": "Driver & Vehicle Licensing Agency",
+        },
+        {
+            "dept_abbrev": "DSA",
+            "dept_slug": "driving-standards-agency",
+            "dept_name": "Driving Standards Agency",
+        },
+        {
+            "dept_abbrev": "VOSA",
+            "dept_slug": "vehicle-and-operator-services-agency",
+            "dept_name": "Vehicle & Operator  Services Agency",
+        },
+        {
+            "dept_abbrev": "No10",
+            "dept_slug": "prime-ministers-office-10-downing-street",
+            "dept_name": "Prime Minister's Office, 10 Downing Street",
+        },
+        {
+            "dept_abbrev": "ODPM",
+            "dept_slug": "deputy-prime-ministers-office",
+            "dept_name": "The Deputy Prime Minister's Office",
         }
     ]
 
