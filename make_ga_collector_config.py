@@ -210,8 +210,8 @@ def output_spotlight_config(row, args):
         if e.errno != errno.EEXIST:
             raise
 
-    fmt = "spotlight-config/output/{}.json"
-    path = fmt.format(row["dashboard_config_name"])
+    fmt = "spotlight-config/output/site-activity-{dept_slug}.json"
+    path = fmt.format(**row)
     with open(path, "w") as fd:
         fd.write(template.render(**row))
 
