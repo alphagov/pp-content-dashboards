@@ -210,6 +210,9 @@ def output_spotlight_config(row, args):
         if e.errno != errno.EEXIST:
             raise
 
+    if "feedback_abbrev" not in row:
+        row["feedback_abbrev"] = row["dept_abbrev"].lower()
+
     fmt = "spotlight-config/output/site-activity-{dept_slug}.json"
     path = fmt.format(**row)
     with open(path, "w") as fd:
@@ -233,14 +236,14 @@ def main(args):
             "dept_name": "Attorney General's Office",
         },
         {
-            "dept_abbrev": "CO",
-            "dept_slug": "cabinet-office",
-            "dept_name": "Cabinet Office",
-        },
-        {
             "dept_abbrev": "BIS",
             "dept_slug":  "department-for-business-innovation-skills",
             "dept_name": "Department for Business, Innovation & Skills"
+        },
+        {
+            "dept_abbrev": "CO",
+            "dept_slug": "cabinet-office",
+            "dept_name": "Cabinet Office",
         },
         {
             "dept_abbrev": "DCLG",
@@ -301,6 +304,7 @@ def main(args):
             "dept_abbrev": "HO",
             "dept_slug": "home-office",
             "dept_name": "Home Office",
+            "feedback_abbrev": "home_office",
         },
         {
             "dept_abbrev": "MOD",
@@ -318,19 +322,10 @@ def main(args):
             "dept_name": "Northern Ireland Office",
         },
         {
-            "dept_abbrev": "OAG",
-            "dept_slug": "office-of-the-advocate-general-for-scotland",
-            "dept_name": "Office of the Advocate General for Scotland",
-        },
-        {
-            "dept_abbrev": "OLHC",
-            "dept_slug": "the-office-of-the-leader-of-the-house-of-commons",
-            "dept_name": "Office of the Leader of the House of Commons",
-        },
-        {
             "dept_abbrev": "SO",
             "dept_slug": "scotland-office",
             "dept_name": "Scotland Office",
+            "feedback_abbrev": "scotland_office",
         },
         {
             "dept_abbrev": "WO",
@@ -358,14 +353,16 @@ def main(args):
             "dept_name": "Vehicle & Operator  Services Agency",
         },
         {
-            "dept_abbrev": "No10",
+            "dept_abbrev": "No 10",
             "dept_slug": "prime-ministers-office-10-downing-street",
             "dept_name": "Prime Minister's Office, 10 Downing Street",
+            "feedback_abbrev": "number_10",
         },
         {
             "dept_abbrev": "ODPM",
             "dept_slug": "deputy-prime-ministers-office",
             "dept_name": "The Deputy Prime Minister's Office",
+            "feedback_abbrev": "dpmo",
         }
     ]
 
