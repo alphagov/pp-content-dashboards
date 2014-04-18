@@ -42,6 +42,14 @@ TEMPLATE_GA_CONFIG = OrderedDict([
 ])
 
 
+def make_bool(what):
+    if not what or not isinstance(what, basestring):
+        return False
+    if what.lower() in ("yes", "on", "1", "true", "separate"):
+        return True
+    return False
+
+
 def get_all_keys(d):
     all_keys = []
     for k, v in d.items():
@@ -133,6 +141,19 @@ def output_ga_collector_config(row, args):
     filters = split(";", row["Filters"])
     sort = split(";", row["Sort"])
 
+    if sort == ["date"]:
+        sort = []
+
+    def fix_filter(f):
+        if "{{departments}}" not in f:
+            return f
+
+        DEPARTMENTS = ("D1|D2|D3|D4|D5|D6|D7|D8|D9|D10|D11|D12|D13|D14|D15|D16"
+                       "|D17|D18|D19|D23|D24|D25|EA74|EA75|EA79|OT532|OT537")
+        return f.replace("{{departments}}", "(<{}>)".format(DEPARTMENTS))
+
+    filters = [fix_filter(f) for f in filters]
+
     if not metrics:
         print "Skipping {} (no metrics)".format(row["dataType"])
         return
@@ -145,7 +166,8 @@ def output_ga_collector_config(row, args):
     row["maxResults"] = row["maxResults"] or 0
 
     # Hardwired in template
-    dimensions.remove("customVarValue9")
+    if "customVarValue9" in dimensions:
+        dimensions.remove("customVarValue9")
 
     row["id_params"] = ", ".join("'{}'".format(m) for m in dimensions)
 
@@ -157,8 +179,12 @@ def output_ga_collector_config(row, args):
 
     row["bearer_token"] = args["<bearer-token>"]
     row["backdrop_target"] = args["<backdrop-target>"]
-    data_type = row['dataType'].replace("-", "_")
-    row["bucket_name"] = "{}_{}".format(row['dataGroup'], data_type)
+
+    fmt = "{dataGroup}_{dataType}"
+    row["bucket_name"] = fmt.format(**row).replace("-", "_")
+
+    # If we need to have many filtersets
+    row["separateQueries"] = make_bool(row.get("separateQueries"))
 
     try:
         os.makedirs("collector-config/output")
@@ -184,8 +210,11 @@ def output_spotlight_config(row, args):
         if e.errno != errno.EEXIST:
             raise
 
-    fmt = "spotlight-config/output/{}.json"
-    path = fmt.format(row["dashboard_config_name"])
+    if "feedback_abbrev" not in row:
+        row["feedback_abbrev"] = row["dept_abbrev"].lower()
+
+    fmt = "spotlight-config/output/site-activity-{dept_slug}.json"
+    path = fmt.format(**row)
     with open(path, "w") as fd:
         fd.write(template.render(**row))
 
@@ -202,16 +231,138 @@ def main(args):
     # departments = load_csv_as_json(INPUT_CSV_PATH)
     departments = [
         {
-            "dashboard_config_name": "dft-content-dashboard",
-            "dept_name": "Department for Transport",
-            "dept_abbrev": "DFT",
-            "dept_slug": "department-for-transport",
+            "dept_abbrev": "AGO",
+            "dept_slug":  "attorney-generals-office",
+            "dept_name": "Attorney General's Office",
         },
         {
-            "dashboard_config_name": "dfe-content-dashboard",
-            "dept_name": "Department for Education",
-            "dept_abbrev": "DFE",
+            "dept_abbrev": "BIS",
+            "dept_slug":  "department-for-business-innovation-skills",
+            "dept_name": "Department for Business, Innovation & Skills"
+        },
+        {
+            "dept_abbrev": "CO",
+            "dept_slug": "cabinet-office",
+            "dept_name": "Cabinet Office",
+        },
+        {
+            "dept_abbrev": "DCLG",
+            "dept_slug": "department-for-communities-and-local-government",
+            "dept_name": "Department for Communities and Local Government",
+        },
+        {
+            "dept_abbrev": "DCMS",
+            "dept_slug": "department-for-culture-media-sport",
+            "dept_name": "Department for Culture, Media & Sport",
+        },
+        {
+            "dept_abbrev": "DfE",
             "dept_slug": "department-for-education",
+            "dept_name": "Department for Education",
+        },
+        {
+            "dept_abbrev": "Defra",
+            "dept_slug": "department-for-environment-food-rural-affairs",
+            "dept_name": "Department for Environment, Food & Rural Affairs",
+        },
+        {
+            "dept_abbrev": "DFID",
+            "dept_slug": "department-for-international-development",
+            "dept_name": "Department for International Development",
+        },
+        {
+            "dept_abbrev": "DFT",
+            "dept_slug": "department-for-transport",
+            "dept_name": "Department for Transport",
+        },
+        {
+            "dept_abbrev": "DWP",
+            "dept_slug": "department-for-work-pensions",
+            "dept_name": "Department for Work and Pensions",
+        },
+        {
+            "dept_abbrev": "DECC",
+            "dept_slug": "department-of-energy-climate-change",
+            "dept_name": "Department of Energy & Climate Change",
+        },
+        {
+            "dept_abbrev": "DH",
+            "dept_slug": "department-of-health",
+            "dept_name": "Department of Health",
+        },
+        {
+            "dept_abbrev": "FCO",
+            "dept_slug": "foreign-commonwealth-office",
+            "dept_name": "Foreign & Commonwealth Office",
+        },
+        {
+            "dept_abbrev": "HMT",
+            "dept_slug": "hm-treasury",
+            "dept_name": "HM Treasury",
+        },
+        {
+            "dept_abbrev": "HO",
+            "dept_slug": "home-office",
+            "dept_name": "Home Office",
+            "feedback_abbrev": "home_office",
+        },
+        {
+            "dept_abbrev": "MOD",
+            "dept_slug": "ministry-of-defence",
+            "dept_name": "Ministry of Defence",
+        },
+        {
+            "dept_abbrev": "MOJ",
+            "dept_slug": "ministry-of-justice",
+            "dept_name": "Ministry of Justice",
+        },
+        {
+            "dept_abbrev": "NIO",
+            "dept_slug": "northern-ireland-office",
+            "dept_name": "Northern Ireland Office",
+        },
+        {
+            "dept_abbrev": "SO",
+            "dept_slug": "scotland-office",
+            "dept_name": "Scotland Office",
+            "feedback_abbrev": "scotland_office",
+        },
+        {
+            "dept_abbrev": "WO",
+            "dept_slug": "wales-office",
+            "dept_name": "Wales Office",
+        },
+        {
+            "dept_abbrev": "HMRC",
+            "dept_slug": "hm-revenue-customs",
+            "dept_name": "HM Revenue & Customs",
+        },
+        {
+            "dept_abbrev": "DVLA",
+            "dept_slug": "driver-and-vehicle-licensing-agency",
+            "dept_name": "Driver & Vehicle Licensing Agency",
+        },
+        {
+            "dept_abbrev": "DSA",
+            "dept_slug": "driving-standards-agency",
+            "dept_name": "Driving Standards Agency",
+        },
+        {
+            "dept_abbrev": "VOSA",
+            "dept_slug": "vehicle-and-operator-services-agency",
+            "dept_name": "Vehicle & Operator  Services Agency",
+        },
+        {
+            "dept_abbrev": "No 10",
+            "dept_slug": "prime-ministers-office-10-downing-street",
+            "dept_name": "Prime Minister's Office, 10 Downing Street",
+            "feedback_abbrev": "number_10",
+        },
+        {
+            "dept_abbrev": "ODPM",
+            "dept_slug": "deputy-prime-ministers-office",
+            "dept_name": "The Deputy Prime Minister's Office",
+            "feedback_abbrev": "dpmo",
         }
     ]
 

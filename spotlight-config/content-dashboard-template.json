@@ -123,7 +123,34 @@
           "title": "News pages",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-news-count"
+          "data-type": "top-news-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -131,15 +158,69 @@
           "title": "Publications",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-publications-count"
+          "data-type": "top-publications-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
-          "slug": "consulations",
-          "title": "Consulations",
+          "slug": "consultations",
+          "title": "Consultations",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-consultations-count"
+          "data-type": "top-consultations-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -147,7 +228,34 @@
           "title": "Policies",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-policy-count"
+          "data-type": "top-policy-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -155,7 +263,34 @@
           "title": "Speeches",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-speeches-count"
+          "data-type": "top-speeches-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -163,7 +298,34 @@
           "title": "Collections",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "top-collections-count"
+          "data-type": "top-collections-count",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "pageTitle",
+            "collect": ["pageviews:sum", "uniquePageviews:sum"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Page Title",
+              "key": "pageTitle"
+            },
+            "y": [
+              {
+                "label": "Page views",
+                "key": "pageviews:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Unique pageviews",
+                "key": "uniquePageviews:sum",
+                "format": "integer"
+              }
+            ]
+          },
+          "sort-by": "uniquePageviews:sum",
+          "sort-order": "descending"
         }
       ]
     },
@@ -270,15 +432,69 @@
           "title": "All referrers",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "PLACEHOLDER"
+          "data-type": "referrers-rate",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "sourceMedium",
+            "collect": ["entrances:sum", "visitBounceRate"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Source medium",
+              "key": "sourceMedium"
+            },
+            "y": [
+              {
+                "label": "Entrances",
+                "key": "entrances:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Bounce rate",
+                "key": "visitBounceRate",
+                "format": "percent"
+              }
+            ]
+          },
+          "sort-by": "entrances:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
-          "slug": "news-pages",
+          "slug": "search-terms",
           "title": "Search terms",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "PLACEHOLDER"
+          "data-type": "organic-rate",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "keyword",
+            "collect": ["entrances:sum", "visitBounceRate"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Keyword",
+              "key": "keyword"
+            },
+            "y": [
+              {
+                "label": "Entrances",
+                "key": "entrances:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Bounce rate",
+                "key": "visitBounceRate",
+                "format": "percent"
+              }
+            ]
+          },
+          "sort-by": "entrances:sum",
+          "sort-order": "descending"
         },
         {
           "module-type": "table",
@@ -286,43 +502,58 @@
           "title": "Social media",
           "description": "",
           "data-group": "gov-uk-content",
-          "data-type": "PLACEHOLDER"
+          "data-type": "social-rate",
+          "query-params": {
+            "filter_by": "department:{{dept_slug}}",
+            "group_by": "socialNetwork",
+            "collect": ["entrances:sum", "visitBounceRate"],
+            "period": "week",
+            "duration": 1
+          },
+          "axes": {
+            "x": {
+              "label": "Social Network",
+              "key": "socialNetwork"
+            },
+            "y": [
+              {
+                "label": "Entrances",
+                "key": "entrances:sum",
+                "format": "integer"
+              },
+              {
+                "label": "Bounce rate",
+                "key": "visitBounceRate",
+                "format": "percent"
+              }
+            ]
+          },
+          "sort-by": "entrances:sum",
+          "sort-order": "descending"
         }
       ]
     },
     {
       "slug": "total-feedback-received",
-      "module-type": "completion_rate",
+      "module-type": "completion_numbers",
       "title": "Total feedback received",
       "description": "",
       "data-group": "gov-uk-content",
-      "data-type": "visitors-count",
-      "filter-by": "department:{{dept_slug}}",
+      "data-type": "feedback-count",
       "info": [
       ],
-      "denominator-matcher": ".*$",
-      "numerator-matcher": "^Small",
-      "matching-attribute": "sme_large",
-      "value-attribute": "monthly_spend:sum",
+      "denominator-matcher": "{{feedback_abbrev}}",
+      "numerator-matcher": "{{feedback_abbrev}}",
+      "matching-attribute": "organisation_acronym",
+      "value-attribute": "comment_count:sum",
       "period": "month",
-      "tabs": [
-        {"id": "monthly_spend:sum", "name": "Unique visits"},
-        {"id": "count:sum", "name": "Unique pageviews"}
-      ],
-      "tabbed_attr": "collect",
-      "category": "sme_large",
       "axes": {
         "x": {
-          "label": "Date of sales",
-          "format": {
-            "type": "date",
-            "format": "MMMM YYYY"
-          },
-          "key": "_start_at"
+          "label": "Date"
         },
         "y": [
           {
-            "label": "Percentage of sales to SMEs"
+            "label": "Comment Count"
           }
         ]
       }
@@ -333,34 +564,28 @@
       "title": "Most commented pages",
       "description": "",
       "data-group": "gov-uk-content",
-      "data-type": "top-count",
-      "filter-by": "department:{{dept_slug}}",
+      "data-type": "top-urls",
       "query-params": {
-        "filter_by": "type:tax-disc",
-        "group_by": "reason",
-        "collect": ["count:sum", "description:set"],
-        "period": "week",
+        "filter_by": "organisation_acronym:{{feedback_abbrev}}",
+        "group_by": "url",
+        "collect": ["comment_count:sum"],
+        "period": "month",
         "duration": 1
       },
       "axes": {
         "x": {
-          "label": "Department",
-          "key": "description:set"
+          "label": "URL",
+          "key": "url"
         },
         "y": [
           {
-            "label": "Visits",
-            "key": "count:sum",
+            "label": "Total comments",
+            "key": "comment_count:sum",
             "format": "integer"
-          },
-          {
-            "label": "Percentage of visits",
-            "key": "percentOfTotal(count:sum)",
-            "format": "percent"
           }
         ]
       },
-      "sort-by": "count:sum",
+      "sort-by": "comment_count:sum",
       "sort-order": "descending"
     }
   ]
