@@ -1,5 +1,5 @@
 {
-  "slug": "{{dept_abbrev}}-content-dashboard",
+  "slug": "site-activity-{dept_slug}",
   "page-type": "dashboard",
   "dashboard-type": "other",
   "strapline": "Content dashboard",
