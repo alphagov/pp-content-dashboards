@@ -85,6 +85,11 @@
       "module-type": "tab",
       "title": "Most popular content",
       "description": "Visitors arriving over the last week",
+      "info":["Data source: Google Analytics",
+      "These show pageviews and unique pageviews to the 10 most popular pages over the last full week (Monday to Sunday).",
+      "‘Pageviews’ is the total number of pages viewed; repeated views of a single page are counted.‘Unique Pageviews’ is the number of visits during which the specified page was viewed at least once.",
+      "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data.",
+      ]
       "tabs": [
         {
           "module-type": "table",
@@ -351,7 +356,8 @@
       "use_stack": true,
       "info": [
         "Data source: Google Analytics",
-        "Desktop category includes traffic from desktops and laptops"
+        "This shows the number and percentage of visits made by three categories of device - desktop, tablet and mobile. The metrics are weekly visits for the last 9 full weeks (Monday to Sunday).",
+        "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data."
       ],
       "axes": {
         "x": {
@@ -399,7 +405,9 @@
       "use_stack": true,
       "info": [
         "Data source: Google Analytics",
-        "Desktop category includes traffic from desktops and laptops"
+        "This shows the number and percentage of visits made by new and returning visitors. The metrics are weekly visits for the last 9 complete weeks (Monday to Sunday).",
+        "Returning visitors are those who have previously visited any part of GOV.UK. ",
+        "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data."
       ],
       "axes": {
         "x": {
@@ -429,6 +437,12 @@
       "slug": "top-department-referrers",
       "title": "Sources of visitors",
       "description": "Visitors arriving over the last week",
+      "info": ["Data source: Google Analytics",
+      "This shows the number of entrances to departmental content and their bounce rate for the last full week (Monday to Sunday).",
+      "‘Sources’ is a mix of search engines (‘organic’), other websites (‘referral’) and other sources that Google Analytics cannot attribute (‘(none)’). ‘Search terms’ shows the keywords used by visitors in Google, Bing etc. that sent them on a visit to GOV.UK that included departmental content. The majority of keywords are being hidden by search engines and are displayed as ‘(not provided)’. Visitors from social media tend to be under-counted by Google Analytics.",
+      "The bounce rate is the percentage of visits where a user arrived on the entrance page and then left the site without interacting with the page or visiting any other pages.",
+      "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data."
+      ],
       "tabs": [
         {
           "module-type": "table",
@@ -569,7 +583,8 @@
       "description": "",
       "data-group": "gov-uk-content",
       "data-type": "top-urls",
-      "info": [
+      "info": ["Data source: ZenDesk customer service tickets",
+      "The data is a count of anonymous comments made on departmental pages in a calendar month. These metrics only include the content in the departments and policy section of the site."
       ],
       "query-params": {
         "filter_by": "organisation_acronym:{{feedback_abbrev}}",
