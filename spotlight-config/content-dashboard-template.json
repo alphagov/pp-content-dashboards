@@ -1,5 +1,5 @@
 {
-  "slug": "site-activity-{dept_slug}",
+  "slug": "site-activity-{{dept_slug}}",
   "page-type": "dashboard",
   "dashboard-type": "other",
   "strapline": "Content dashboard",
@@ -38,10 +38,11 @@
           "description": "",
           "data-group": "gov-uk-content",
           "data-type": "traffic-count",
-          "info": ["Data source: Google Analytics",
-          "These show visitors to content and pageviews each week for the last 9 full weeks (Monday to Sunday). ",
-          "‘Pageviews’ is the total number of pages viewed; repeated views of a single page are counted. Visitors may be accessing the site through multiple devices or have deleted cookies, so may be counted more than once.",
-          "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data.",
+          "info": [
+            "Data source: Google Analytics",
+            "These show visitors to content and pageviews each week for the last 9 full weeks (Monday to Sunday). ",
+            "‘Pageviews’ is the total number of pages viewed; repeated views of a single page are counted. Visitors may be accessing the site through multiple devices or have deleted cookies, so may be counted more than once.",
+            "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data."
           ],
           "denominator-matcher": "{{dept_slug}}",
           "numerator-matcher": "{{dept_slug}}",
@@ -90,10 +91,11 @@
       "module-type": "tab",
       "title": "Most popular content",
       "description": "Visitors arriving over the last week.",
-      "info":["Data source: Google Analytics",
-      "These show pageviews and unique pageviews to the 10 most popular pages over the last full week (Monday to Sunday).",
-      "‘Pageviews’ is the total number of pages viewed; repeated views of a single page are counted.‘Unique Pageviews’ is the number of visits during which the specified page was viewed at least once.",
-      "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data.",
+      "info":[
+        "Data source: Google Analytics",
+        "These show pageviews and unique pageviews to the 10 most popular pages over the last full week (Monday to Sunday).",
+        "‘Pageviews’ is the total number of pages viewed; repeated views of a single page are counted.‘Unique Pageviews’ is the number of visits during which the specified page was viewed at least once.",
+        "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data."
       ],
       "tabs": [
         {
