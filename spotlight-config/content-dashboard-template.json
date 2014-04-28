@@ -25,11 +25,11 @@
     {
       "slug": "traffic-to-department-content",
       "module-type": "tab",
-      "title": "Traffic to department content",
+      "title": "Traffic to content",
       "tabs": [
         {
           "module-type": "completion_numbers",
-          "title": "Unique visits",
+          "title": "Visitors",
           "description": "",
           "data-group": "gov-uk-content",
           "data-type": "traffic-count",
@@ -53,7 +53,7 @@
         },
         {
           "module-type": "completion_numbers",
-          "title": "Unique pageviews",
+          "title": "Pageviews",
           "description": "",
           "data-group": "gov-uk-content",
           "data-type": "pageviews-count",
@@ -81,7 +81,7 @@
       "slug": "most-popular-content",
       "module-type": "tab",
       "title": "Most popular content",
-      "description": "",
+      "description": "Visitors arriving over the last week",
       "tabs": [
         {
           "module-type": "table",
@@ -333,8 +333,8 @@
     {
       "slug": "how-users-access-the-service",
       "module-type": "grouped_timeseries",
-      "title": "How users access the service",
-      "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
+      "title": "Devices used to access the content",
+      "description": "<span class=\"group0\">Desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over the last 9 weeks.",
       "data-group": "gov-uk-content",
       "data-type": "devices-count",
       "filter-by": "department:{{dept_slug}}",
@@ -381,8 +381,8 @@
     {
       "slug": "new-visitors-vs-returning-visitors",
       "module-type": "grouped_timeseries",
-      "title": "New visitors vs returning visitors",
-      "description": "Breakdown of <span class=\"group0\">desktop</span>, <span class=\"group1\">mobile</span> and <span class=\"group2\">tablet</span> usage on GOV.UK over time",
+      "title": "New and returning visitors",
+      "description": "Split between <span class=\"group0\">new</span> and <span class=\"group1\">returning</span> visitors to GOV.UK over the last 9 weeks.",
       "data-group": "gov-uk-content",
       "data-type": "new-returning-count",
       "filter-by": "department:{{dept_slug}}",
@@ -424,13 +424,13 @@
     {
       "module-type": "tab",
       "slug": "top-department-referrers",
-      "title": "Top department referrers",
-      "description": "",
+      "title": "Sources of visitors",
+      "description": "Visitors arriving over the last week",
       "tabs": [
         {
           "module-type": "table",
-          "slug": "all-referrers",
-          "title": "All referrers",
+          "slug": "all-sources",
+          "title": "All sources",
           "description": "",
           "data-group": "gov-uk-content",
           "data-type": "referrers-rate",
@@ -443,7 +443,7 @@
           },
           "axes": {
             "x": {
-              "label": "Source medium",
+              "label": "Source of user",
               "key": "sourceMedium"
             },
             "y": [
@@ -566,6 +566,8 @@
       "description": "",
       "data-group": "gov-uk-content",
       "data-type": "top-urls",
+      "info": [
+      ],
       "query-params": {
         "filter_by": "organisation_acronym:{{feedback_abbrev}}",
         "group_by": "url",
