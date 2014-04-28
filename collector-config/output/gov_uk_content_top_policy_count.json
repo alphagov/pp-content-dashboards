@@ -1,0 +1,52 @@
+{
+  "dataType": "top-policy-count",
+  "query": {
+    "id": "ga:74473500",
+    "metrics": ["pageviews", "uniquePageviews"],
+    "dimensions": ["pageTitle"],
+    "filters": ["pagePath=~^/government/policies"],
+    "sort": ["-uniquePageviews"],
+    "maxResults": 10
+  },
+  "target": {
+    "url": "http://localhost:3039/gov_uk_content_top_policy_count",
+    "token": "scraperwiki"
+  },
+  "plugins": [
+    "Comment('department computed from filtersets by collect-content-dashboard-table.py')",
+    
+    
+    "ComputeRank('rank')",
+    "ComputeIdFrom('_timestamp', 'timeSpan', 'dataType', 'department', 'rank')"
+    
+  ],
+  "filtersets": [
+    ["customVarValue9=~^<D1>"],
+    ["customVarValue9=~^<D2>"],
+    ["customVarValue9=~^<D3>"],
+    ["customVarValue9=~^<D4>"],
+    ["customVarValue9=~^<D5>"],
+    ["customVarValue9=~^<D6>"],
+    ["customVarValue9=~^<D7>"],
+    ["customVarValue9=~^<D8>"],
+    ["customVarValue9=~^<D9>"],
+    ["customVarValue9=~^<D10>"],
+    ["customVarValue9=~^<D11>"],
+    ["customVarValue9=~^<D12>"],
+    ["customVarValue9=~^<D13>"],
+    ["customVarValue9=~^<D14>"],
+    ["customVarValue9=~^<D15>"],
+    ["customVarValue9=~^<D16>"],
+    ["customVarValue9=~^<D17>"],
+    ["customVarValue9=~^<D18>"],
+    ["customVarValue9=~^<D19>"],
+    ["customVarValue9=~^<D23>"],
+    ["customVarValue9=~^<D24>"],
+    ["customVarValue9=~^<D25>"],
+    ["customVarValue9=~^<EA74>"],
+    ["customVarValue9=~^<EA75>"],
+    ["customVarValue9=~^<EA79>"],
+    ["customVarValue9=~^<OT532>"],
+    ["customVarValue9=~^<OT537>"]
+  ]
+}
