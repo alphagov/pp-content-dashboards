@@ -1,7 +1,8 @@
 {
   "slug": "{{dept_abbrev}}-content-dashboard",
   "page-type": "dashboard",
-  "strapline": "Content Dashboard",
+  "dashboard-type": "other",
+  "strapline": "Content dashboard",
   "title": "{{dept_name}} ({{dept_abbrev}})",
   "tagline": "Web performance data for the {{dept_name}}, including site traffic and availability. <a href='http://www.gov.uk/performance/site-activity'>View GOV.UK site activity</a>",
   "relatedPages": {
