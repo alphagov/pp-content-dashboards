@@ -201,8 +201,10 @@ def output_ga_collector_config(row, args):
 
 
 def output_spotlight_config(row, args):
-    template = jinja.from_string(
-        open("spotlight-config/content-dashboard-template.json").read())
+    data = open("spotlight-config/content-dashboard-template.json").read()
+    data = data.decode("utf8")
+
+    template = jinja.from_string(data)
 
     try:
         os.makedirs("spotlight-config/output")
@@ -216,7 +218,7 @@ def output_spotlight_config(row, args):
     fmt = "spotlight-config/output/site-activity-{dept_slug}.json"
     path = fmt.format(**row)
     with open(path, "w") as fd:
-        fd.write(template.render(**row))
+        fd.write(template.render(**row).encode("utf8"))
 
 
 def main(args):

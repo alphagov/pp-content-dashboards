@@ -4,7 +4,7 @@
     "id": "ga:74473500",
     "metrics": ["entrances", "visitBounceRate"],
     "dimensions": ["sourceMedium"],
-    "filters": ["socialNetwork!=(not set)"],
+    "filters": ["sourceMedium!=(not set)"],
     "sort": ["-entrances"],
     "maxResults": 10
   },
