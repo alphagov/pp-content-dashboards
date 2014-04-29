@@ -602,8 +602,9 @@
       "description": "",
       "data-group": "gov-uk-content",
       "data-type": "top-urls",
-      "info": ["Data source: GOV.UK anonymous feedback",
-      "The data is a count of anonymous comments made on departmental pages in a calendar month. These metrics only include the content in the departments and policy section of the site."
+      "info": [
+        "Data source: GOV.UK anonymous feedback",
+        "The data is a count of anonymous comments made on departmental pages in a calendar month. These metrics only include the content in the departments and policy section of the site."
       ],
       "query-params": {
         "filter_by": "organisation_acronym:{{feedback_abbrev}}",
