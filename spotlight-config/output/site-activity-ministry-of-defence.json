@@ -28,10 +28,11 @@
       "slug": "traffic-to-department-content",
       "module-type": "tab",
       "title": "Traffic to content",
-      "info":["Data source: Google Analytics",
-      "These show visitors to content and pageviews each week for the last 9 full weeks (Monday to Sunday).",
-      "‘Pageviews’ is the total number of pages viewed; repeated views of a single page are counted. Visitors may be accessing the site through multiple devices or have deleted cookies, so may be counted more than once.",
-      "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data.",
+      "info":[
+        "Data source: Google Analytics",
+        "These show visitors to content and pageviews each week for the last 9 full weeks (Monday to Sunday).",
+        "‘Pageviews’ is the total number of pages viewed; repeated views of a single page are counted. Visitors may be accessing the site through multiple devices or have deleted cookies, so may be counted more than once.",
+        "A department’s content is defined as the pages that a department publishes. The metrics only include the content in the departments and policy section of the site. These metrics may be based on sampled data."
       ],
       "tabs": [
         {
