@@ -4,7 +4,9 @@
   "dashboard-type": "other",
   "strapline": "Content dashboard",
   "title": "{{dept_name}} ({{dept_abbrev}})",
-  "tagline": "Web performance data for the {{dept_name}}, including site traffic and feedback. <a href='http://www.gov.uk/performance/site-activity'>View GOV.UK site activity</a>",
+  "other": {
+    "tagline": "Web performance data for the {{dept_name}}, including site traffic and availability. <a href='http://www.gov.uk/performance/site-activity'>View GOV.UK site activity</a>"
+  },
   "relatedPages": {
     "transaction": {
       "title": "{{dept_name}}",
