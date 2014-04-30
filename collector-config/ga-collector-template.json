@@ -53,6 +53,16 @@
     ["customVarValue9=~^<EA75>"],
     ["customVarValue9=~^<EA79>"],
     ["customVarValue9=~^<OT532>"],
-    ["customVarValue9=~^<OT537>"]
+    ["customVarValue9=~^<OT537>"],
+    ["customVarValue9=~^<D20>"],
+    ["customVarValue9=~^<D21>"],
+    ["customVarValue9=~^<D22>"],
+    ["customVarValue9=~^<D241>"],
+    ["customVarValue9=~^<D117>"],
+    ["customVarValue9=~^<EA199>"],
+    ["customVarValue9=~^<D98>"],
+    ["customVarValue9=~^<EA321>"],
+    ["customVarValue9=~^<OT554>"],
+    ["customVarValue9=~^<EA570>"]
   ]{% endif %}
 }

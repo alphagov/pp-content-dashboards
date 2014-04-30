@@ -149,7 +149,8 @@ def output_ga_collector_config(row, args):
             return f
 
         DEPARTMENTS = ("D1|D2|D3|D4|D5|D6|D7|D8|D9|D10|D11|D12|D13|D14|D15|D16"
-                       "|D17|D18|D19|D23|D24|D25|EA74|EA75|EA79|OT532|OT537")
+                       "|D17|D18|D19|D23|D24|D25|EA74|EA75|EA79|OT532|OT537"
+                       "|D20|D21|D22|D241|D117|EA199|D98|EA321|OT554|EA570")
         return f.replace("{{departments}}", "<({})>".format(DEPARTMENTS))
 
     filters = [fix_filter(f) for f in filters]
@@ -416,6 +417,11 @@ def main(args):
             "dept_abbrev": "UKVI",
             "dept_slug": "uk-visas-and-immigration",
             "dept_name": "UK Visas and Immigration",
+        },
+        {
+            "dept_abbrev": "DVSA",
+            "dept_slug": "driver-and-vehicle-standards-agency",
+            "dept_name": "Driver & Vehicle Standards Agency",
         },
     ]
 
