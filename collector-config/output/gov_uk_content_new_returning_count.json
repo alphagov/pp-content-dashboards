@@ -3,8 +3,8 @@
   "query": {
     "id": "ga:74473500",
     "metrics": ["entrances"],
-    "dimensions": ["visitorType", "customVarValue9"],
-    "filters": ["customVarValue9=~^<(D1|D2|D3|D4|D5|D6|D7|D8|D9|D10|D11|D12|D13|D14|D15|D16|D17|D18|D19|D23|D24|D25|EA74|EA75|EA79|OT532|OT537)>"],
+    "dimensions": ["visitorType"],
+    "filters": [],
     "sort": ["visitorType"],
     "maxResults": 0
   },
@@ -13,12 +13,39 @@
     "token": "scraperwiki"
   },
   "plugins": [
-    "ComputeDepartmentKey('customVarValue9')",
-    "RemoveKey('customVarValue9', '_id', 'humanId')",
-    "AggregateKey(aggregate_count('entrances'))",
+    "Comment('department computed from filtersets by collect-content-dashboard-table.py')",
     
     
     "ComputeIdFrom('_timestamp', 'timeSpan', 'dataType', 'department', 'visitorType')"
     
+  ],
+  "filtersets": [
+    ["customVarValue9=~^<D1>"],
+    ["customVarValue9=~^<D2>"],
+    ["customVarValue9=~^<D3>"],
+    ["customVarValue9=~^<D4>"],
+    ["customVarValue9=~^<D5>"],
+    ["customVarValue9=~^<D6>"],
+    ["customVarValue9=~^<D7>"],
+    ["customVarValue9=~^<D8>"],
+    ["customVarValue9=~^<D9>"],
+    ["customVarValue9=~^<D10>"],
+    ["customVarValue9=~^<D11>"],
+    ["customVarValue9=~^<D12>"],
+    ["customVarValue9=~^<D13>"],
+    ["customVarValue9=~^<D14>"],
+    ["customVarValue9=~^<D15>"],
+    ["customVarValue9=~^<D16>"],
+    ["customVarValue9=~^<D17>"],
+    ["customVarValue9=~^<D18>"],
+    ["customVarValue9=~^<D19>"],
+    ["customVarValue9=~^<D23>"],
+    ["customVarValue9=~^<D24>"],
+    ["customVarValue9=~^<D25>"],
+    ["customVarValue9=~^<EA74>"],
+    ["customVarValue9=~^<EA75>"],
+    ["customVarValue9=~^<EA79>"],
+    ["customVarValue9=~^<OT532>"],
+    ["customVarValue9=~^<OT537>"]
   ]
 }
