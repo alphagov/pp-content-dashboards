@@ -352,7 +352,7 @@ def main(args):
         {
             "dept_abbrev": "VOSA",
             "dept_slug": "vehicle-and-operator-services-agency",
-            "dept_name": "Vehicle & Operator  Services Agency",
+            "dept_name": "Vehicle & Operator Services Agency",
         },
         {
             "dept_abbrev": "No 10",
@@ -365,7 +365,58 @@ def main(args):
             "dept_slug": "deputy-prime-ministers-office",
             "dept_name": "The Deputy Prime Minister's Office",
             "feedback_abbrev": "dpmo",
-        }
+        },
+        {
+            "dept_abbrev": "ODPM",
+            "dept_slug": "deputy-prime-ministers-office",
+            "dept_name": "The Deputy Prime Minister's Office",
+            "feedback_abbrev": "dpmo",
+        },
+        {
+            "dept_abbrev": "OAG",
+            "dept_slug": "office-of-the-advocate-general-for-scotland",
+            "dept_name": "Office of the Advocate General for Scotland",
+        },
+        {
+            "dept_abbrev": "OLHC",
+            "dept_slug": "the-office-of-the-leader-of-the-house-of-commons",
+            "dept_name": "Office of the Leader of the House of Commons",
+        },
+        {
+            "dept_abbrev": "OLHL",
+            "dept_slug": "office-of-the-leader-of-the-house-of-lords",
+            "dept_name": "Office of the Leader of the House of Lords",
+        },
+        {
+            "dept_abbrev": "UKEF",
+            "dept_slug": "uk-export-finance",
+            "dept_name": "UK Export Finance",
+        },
+        {
+            "dept_abbrev": "UKTI",
+            "dept_slug": "uk-trade-investment",
+            "dept_name": "UK Trade & Investment",
+        },
+        {
+            "dept_abbrev": "EA",
+            "dept_slug": "environment-agency",
+            "dept_name": "Environment Agency",
+        },
+        {
+            "dept_abbrev": "CC",
+            "dept_slug": "the-charity-commission-for-england-and-wales",
+            "dept_name": "The Charity Commission",
+        },
+        {
+            "dept_abbrev": "HMPS",
+            "dept_slug": "hm-prison-service",
+            "dept_name": "HM Prison Service",
+        },
+        {
+            "dept_abbrev": "UKVI",
+            "dept_slug": "uk-visas-and-immigration",
+            "dept_name": "UK Visas and Immigration",
+        },
     ]
 
     for department in departments:
