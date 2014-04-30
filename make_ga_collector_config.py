@@ -149,7 +149,8 @@ def output_ga_collector_config(row, args):
             return f
 
         DEPARTMENTS = ("D1|D2|D3|D4|D5|D6|D7|D8|D9|D10|D11|D12|D13|D14|D15|D16"
-                       "|D17|D18|D19|D23|D24|D25|EA74|EA75|EA79|OT532|OT537")
+                       "|D17|D18|D19|D23|D24|D25|EA74|EA75|EA79|OT532|OT537"
+                       "|D20|D21|D22|D241|D117|EA199|D98|EA321|OT554|EA570")
         return f.replace("{{departments}}", "<({})>".format(DEPARTMENTS))
 
     filters = [fix_filter(f) for f in filters]
@@ -352,7 +353,7 @@ def main(args):
         {
             "dept_abbrev": "VOSA",
             "dept_slug": "vehicle-and-operator-services-agency",
-            "dept_name": "Vehicle & Operator  Services Agency",
+            "dept_name": "Vehicle & Operator Services Agency",
         },
         {
             "dept_abbrev": "No 10",
@@ -365,7 +366,63 @@ def main(args):
             "dept_slug": "deputy-prime-ministers-office",
             "dept_name": "The Deputy Prime Minister's Office",
             "feedback_abbrev": "dpmo",
-        }
+        },
+        {
+            "dept_abbrev": "ODPM",
+            "dept_slug": "deputy-prime-ministers-office",
+            "dept_name": "The Deputy Prime Minister's Office",
+            "feedback_abbrev": "dpmo",
+        },
+        {
+            "dept_abbrev": "OAG",
+            "dept_slug": "office-of-the-advocate-general-for-scotland",
+            "dept_name": "Office of the Advocate General for Scotland",
+        },
+        {
+            "dept_abbrev": "OLHC",
+            "dept_slug": "the-office-of-the-leader-of-the-house-of-commons",
+            "dept_name": "Office of the Leader of the House of Commons",
+        },
+        {
+            "dept_abbrev": "OLHL",
+            "dept_slug": "office-of-the-leader-of-the-house-of-lords",
+            "dept_name": "Office of the Leader of the House of Lords",
+        },
+        {
+            "dept_abbrev": "UKEF",
+            "dept_slug": "uk-export-finance",
+            "dept_name": "UK Export Finance",
+        },
+        {
+            "dept_abbrev": "UKTI",
+            "dept_slug": "uk-trade-investment",
+            "dept_name": "UK Trade & Investment",
+        },
+        {
+            "dept_abbrev": "EA",
+            "dept_slug": "environment-agency",
+            "dept_name": "Environment Agency",
+        },
+        {
+            "dept_abbrev": "CC",
+            "dept_slug": "the-charity-commission-for-england-and-wales",
+            "dept_name": "The Charity Commission",
+        },
+        {
+            "dept_abbrev": "HMPS",
+            "dept_slug": "hm-prison-service",
+            "dept_name": "HM Prison Service",
+        },
+        {
+            "dept_abbrev": "UKVI",
+            "dept_slug": "uk-visas-and-immigration",
+            "dept_name": "UK Visas and Immigration",
+        },
+        {
+            "dept_abbrev": "DVSA",
+            "dept_slug": "driver-and-vehicle-standards-agency",
+            "dept_name": "Driver & Vehicle Standards Agency",
+        },
     ]
 
     for department in departments:
