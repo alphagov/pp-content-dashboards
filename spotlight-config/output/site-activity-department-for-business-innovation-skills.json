@@ -36,6 +36,7 @@
       ],
       "tabs": [
         {
+          "slug": "visitors",
           "module-type": "completion_numbers",
           "title": "Visitors",
           "description": "",
@@ -64,6 +65,7 @@
           }
         },
         {
+          "slug": "pageviews",
           "module-type": "completion_numbers",
           "title": "Pageviews",
           "description": "",
