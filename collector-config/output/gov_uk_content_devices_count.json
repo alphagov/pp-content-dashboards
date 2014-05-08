@@ -2,7 +2,7 @@
   "dataType": "devices-count",
   "query": {
     "id": "ga:74473500",
-    "metrics": ["pageviews"],
+    "metrics": ["users"],
     "dimensions": ["deviceCategory"],
     "filters": [],
     "sort": ["deviceCategory"],

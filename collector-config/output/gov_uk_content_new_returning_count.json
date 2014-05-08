@@ -2,7 +2,7 @@
   "dataType": "new-returning-count",
   "query": {
     "id": "ga:74473500",
-    "metrics": ["entrances"],
+    "metrics": ["users"],
     "dimensions": ["visitorType"],
     "filters": [],
     "sort": ["visitorType"],
