@@ -1,12 +1,11 @@
 {
   "slug": "site-activity-vehicle-and-operator-services-agency",
   "page-type": "dashboard",
-  "dashboard-type": "other",
+  "dashboard-type": "content",
+  "published": true,
   "strapline": "Content dashboard",
   "title": "Vehicle & Operator Services Agency (VOSA)",
-  "other": {
-    "tagline": "Web performance data for Vehicle & Operator Services Agency. including site traffic and availability. <a href=\"http://www.gov.uk/performance/site-activity\">View site activity for all GOV.UK pages</a>."
-  },
+  "tagline": "Web performance data for Vehicle & Operator Services Agency. Including site traffic and availability. <a href=\"http://www.gov.uk/performance/site-activity\">View site activity for all GOV.UK pages</a>.",
   "relatedPages": {
     "transaction": {
       "title": "Vehicle & Operator Services Agency",
@@ -588,6 +587,7 @@
         "A count of anonymous comments made on departmental pages in a calendar month.",
         "A department’s content is defined as the pages that a department publishes. Only includes the content in the Departments and policy section and may be based on sampled data."
       ],
+      "default-value": 0,
       "denominator-matcher": "vosa",
       "numerator-matcher": "vosa",
       "matching-attribute": "organisation_acronym",
