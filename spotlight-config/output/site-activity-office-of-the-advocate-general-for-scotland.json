@@ -1,12 +1,11 @@
 {
   "slug": "site-activity-office-of-the-advocate-general-for-scotland",
   "page-type": "dashboard",
-  "dashboard-type": "other",
+  "dashboard-type": "content",
+  "published": true,
   "strapline": "Content dashboard",
   "title": "Office of the Advocate General for Scotland (OAG)",
-  "other": {
-    "tagline": "Web performance data for Office of the Advocate General for Scotland. including site traffic and availability. <a href=\"http://www.gov.uk/performance/site-activity\">View site activity for all GOV.UK pages</a>."
-  },
+  "tagline": "Web performance data for Office of the Advocate General for Scotland. Including site traffic and availability. <a href=\"http://www.gov.uk/performance/site-activity\">View site activity for all GOV.UK pages</a>.",
   "relatedPages": {
     "transaction": {
       "title": "Office of the Advocate General for Scotland",
@@ -588,6 +587,7 @@
         "A count of anonymous comments made on departmental pages in a calendar month.",
         "A department’s content is defined as the pages that a department publishes. Only includes the content in the Departments and policy section and may be based on sampled data."
       ],
+      "default-value": 0,
       "denominator-matcher": "oag",
       "numerator-matcher": "oag",
       "matching-attribute": "organisation_acronym",
